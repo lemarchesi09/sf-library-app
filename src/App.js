@@ -5,6 +5,7 @@ import { Details } from "./components/Details";
 import { Home } from "./components/Home";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
+import { Create } from "./components/Create";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}/>
         {/*Agregar enrutado dinamico con uso de id*/}
         <Route path="/details" element={<Details />}/>
+        <Route path="/create" element={<Create />}/>
       </Routes>
       <Footer />
     </div>
