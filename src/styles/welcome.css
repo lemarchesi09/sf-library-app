@@ -1,0 +1,31 @@
+.welcome-cont{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/welcome-bg-3.jpg);
+    width: 100%;
+    background-size: cover;
+    height: 68vh;
+}
+
+.welc-text{
+    color: white;
+}
+.welc-text h1{
+    font-size: 2rem;
+}
+span{
+    color: orangered;
+}
+.welc-text p{
+    font-size: 1.5rem;
+}
+.welc-btn{
+    background-color: orangered;
+    color: white;
+    padding: 2%;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.welc-btn:hover{
+    background-color: white;
+    color: orangered;
+    transition: all .5s ease-in-out;
+}

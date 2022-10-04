@@ -6,12 +6,14 @@ import { Home } from "./components/Home";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { Create } from "./components/Create";
+import { Welcome } from "./components/Welcome";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Routes>
+        <Route path="/welcome" element={<Welcome />}/>
         <Route path="/" element={<Home />}/>
         <Route path="/dashboard" element={<Dashboard />}/>
         {/*Agregar enrutado dinamico con uso de id*/}
