@@ -8,7 +8,7 @@ export const NavBar = () =>{
         <div className="navbar__container">
             <ul className="navbar__links">
                 <div className="navbar__item">
-                    <Link to='/welcome' className="navbar__item-logo"><img className="navbar__item-logo-img" src={logo} alt="img logo"></img></Link>
+                    <Link to='/home' className="navbar__item-logo"><img className="navbar__item-logo-img" src={logo} alt="img logo"></img></Link>
                     <Link to='/login' className="navbar__item-btn-login-mobil"><BsPersonCircle />Login</Link>
                 </div>
                 <div className="navbar__item-search-container">
@@ -22,12 +22,11 @@ export const NavBar = () =>{
                         </li>
                     <li className="navbar__item-btn-search"><BsSearch /></li>
                 </div>
-                {/* 
-                crear dentro del login
-                <Link to='/userCreate' className="navbar__item btn btn-create">creat</Link>
-                */}
-            
                 <Link to='/login' className="navbar__item-btn-login"><BsPersonCircle />Login</Link>
+                
+                {/*****************/}
+                {/*<Link to='/book'>AddBook</Link>  <------BORRAR!! */}
+                {/*****************/}
             </ul>
         </div>
     )
