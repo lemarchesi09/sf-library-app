@@ -1,5 +1,4 @@
 import "../styles/footer.css";
-import AvLogo from "../assets/avalith-logo-tp-sm.png";
 import { Link } from "react-router-dom";
 export const Footer = () =>{
     return(
@@ -9,8 +8,8 @@ export const Footer = () =>{
                 <p>Autores:</p>
                 <a href="https://github.com/SebaDAlessandro">Sebastian D'Alessandro</a>
                 <a href="https://github.com/lemarchesi09">Enzo Marchesi</a>
+            <a href="https://www.avalith.net/"  className="avalith__link" target="_blank" rel="noreferrer"><p className="avalith">AVALITH<span className="punto">.</span></p></a>
             </div>
-            <img src={AvLogo} className="foot-logo" alt="avalith-logo"/>
         </div>
     )
 }

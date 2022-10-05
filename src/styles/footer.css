@@ -1,19 +1,19 @@
 .foot-cont{
     background-color: rgb(117, 116, 116);
     display: flex;
-    width: 100%;
+    width: 100vw;
     justify-content: space-between;
     align-items: center;
-    height: 8vh;
+    height: 10vh;
 }
 
 .foot-text{
     display: flex;
-    justify-content: space-between;
-    width: 30%;
+    justify-content: space-around;
+    width: 100vw;
     align-items: center;
     text-decoration: none;
-    color: white;
+    color: rgb(255 255 255);
     font-size: .8rem;
 }
 .foot-text a{
@@ -24,4 +24,21 @@
 .foot-logo{
     width: 36%;
 
+}
+
+.avalith__link {
+    text-decoration: none;
+    display: flex;
+}
+
+.avalith {
+    font-weight: 600;
+    font-style: italic;
+    color: var(--font-black);
+    font-size: 1.5rem;
+}
+
+.punto{
+    color: var(--font-red);
+    font-size: 1.3rem;
 }

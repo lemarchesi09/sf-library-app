@@ -48,5 +48,12 @@ table {
 }
 
 :root {
+	--background-yellow: rgb(255 241 89);
+
+	--font-grey: rgb(33 37 41);
+	--font-black: rgb(0 0 0);
+	--font-red: rgb(210,38,48);
+
+
     --poppins: 'Poppins', sans-serif;
 }

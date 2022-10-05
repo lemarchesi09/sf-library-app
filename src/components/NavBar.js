@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import '../styles/navBar.css'
 import { BsSearch, BsPersonCircle } from 'react-icons/bs';
+import logo from '../assets/bookstore-removebg.png'
 
 export const NavBar = () =>{
     return(
         <div className="navbar__container">
             <ul className="navbar__links">
-                <Link to='/home' className="navbar__item-logo">Logo</Link>
-                <Link to='/login' className="navbar__item-btn-login-mobil"><BsPersonCircle />Login</Link>
+                <div className="navbar__item">
+                    <Link to='/welcome' className="navbar__item-logo"><img className="navbar__item-logo-img" src={logo} alt="img logo"></img></Link>
+                    <Link to='/login' className="navbar__item-btn-login-mobil"><BsPersonCircle />Login</Link>
+                </div>
                 <div className="navbar__item-search-container">
                     <li className="navbar__item-search">
                         <input
@@ -26,7 +29,6 @@ export const NavBar = () =>{
             
                 <Link to='/login' className="navbar__item-btn-login"><BsPersonCircle />Login</Link>
             </ul>
-
         </div>
     )
 }
