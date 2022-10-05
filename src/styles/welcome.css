@@ -2,7 +2,7 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/welcome-bg-3.jpg);
     width: 100%;
     background-size: cover;
-    height: 68vh;
+    height: 70vh;
 }
 
 .welc-text{
@@ -28,4 +28,10 @@ span{
     background-color: white;
     color: orangered;
     transition: all .5s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+    .welcome-cont {
+        height: 80vh;
+    }
 }
