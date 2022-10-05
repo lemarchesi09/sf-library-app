@@ -9,9 +9,9 @@ export const Welcome = () =>{
                 <h1>Bienvenid@s a LibreriApp</h1>
                 <p>Encontra un listado de libros <span>Increíbles</span></p>
                 <p>También podes subir tus libros y agrandar la colección</p>
-                <Link to="/" className="welc-btn" >Comenzar !</Link>
 
             </div>
+                <Link to="/" className="welc-btn" >Comenzar !</Link>
         </div>
     )
 }

@@ -16,6 +16,7 @@
     color: rgb(255 255 255);
     font-size: .8rem;
 }
+
 .foot-text a{
     text-decoration: none;
     color: white;
@@ -41,4 +42,10 @@
 .punto{
     color: var(--font-red);
     font-size: 1.3rem;
+}
+
+@media screen and (min-width: 768px) {
+    .foot-text {
+        font-size: 1.3rem;
+    }
 }
