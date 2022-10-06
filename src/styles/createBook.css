@@ -1,6 +1,6 @@
 .form{
     width: 100vw;
-    height: 70vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,5 +12,10 @@
 }
 
 .form__btn {
+    margin: 0 0 20px 10px;
+}
+
+.form__input-error {
     margin: 0 0 10px 10px;
+    color: var(--font-red);
 }
