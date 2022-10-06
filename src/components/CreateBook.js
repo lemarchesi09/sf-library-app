@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import '../styles/createBook.css'
+import { v4 as uuidv4 } from 'uuid';
 
 const CreateBook = () => {
 
@@ -15,7 +16,9 @@ const CreateBook = () => {
             gender: data.gender,
             year: data.year,
             author: data.author,
-            description: data.description
+            synopsis: data.synopsis,
+            id: uuidv4()
+            //author: [string, string, string]
         }
 
         console.log(bookData)
@@ -60,7 +63,7 @@ const CreateBook = () => {
                       id="gender"
                       className="form__input"
                       type="text"
-                      placeholder="Max 10 letters"
+                      placeholder="Max 20 letters"
                       autoComplete="off"
                       {...register('gender', {
                           required:{
@@ -68,8 +71,8 @@ const CreateBook = () => {
                             message:'The gender input is required'
                           },
                           maxLength: {
-                            value: 10,
-                            message: 'Must be less than 10 letters'
+                            value: 20,
+                            message: 'Must be less than 20 letters'
                           }
                       })}
                     />
@@ -129,7 +132,7 @@ const CreateBook = () => {
                         })}
                     />
                 </div>
-                {errors.synopsis && <span className="form__input-error">{errors.synopsis.message}</span>}
+                {errors.synopsis && <p className="form__input-error">{errors.synopsis.message}</p>}
                 
                 <button className="form__btn" id="formBtn">Load up</button>
     
