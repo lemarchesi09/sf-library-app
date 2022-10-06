@@ -22,7 +22,7 @@ function App() {
         <Route path="/create" element={<Create />}/>
 
         {/*****************/}
-        <Route path="/book" element={<CreateBook />}/> {/* <------BORRAR!! */}
+        <Route path="/createbook" element={<CreateBook />}/> {/* <------BORRAR!! */}
         {/*****************/}
         
       </Routes>
