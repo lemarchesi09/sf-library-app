@@ -12,11 +12,11 @@ const CreateBook = () => {
     const onSubmit = (data, e)=>{
 
         const bookData ={
-            title: data.title,
-            gender: data.gender,
+            title: data.title.trim(),
+            gender: data.gender.trim(),
             year: data.year,
-            author: data.author,
-            synopsis: data.synopsis,
+            author: data.author.trim(),
+            synopsis: data.synopsis.trim(),
             id: uuidv4()
             //author: [string, string, string]
         }
@@ -25,6 +25,10 @@ const CreateBook = () => {
 
         // limpiar campos
         e.target.reset();
+    }
+
+    const addAuthors = ()=>{
+      console.log('click')
     }
 
 
@@ -116,6 +120,7 @@ const CreateBook = () => {
                           }
                       })}
                     />
+                    <span onClick={addAuthors}>(+)</span>
                 </div>
                 {errors.author && <span className="form__input-error">{errors.author.message}</span>}
 
@@ -125,7 +130,7 @@ const CreateBook = () => {
                         className="form__textarea"
                         name="synopsis"
                         id="synopsis"
-                        rows="7"
+                        rows="5"
                         placeholder="Please enter a short summary"
                         {...register('synopsis',{
                             required:'The synopsis input is required'
