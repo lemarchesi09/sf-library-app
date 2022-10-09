@@ -1,9 +1,7 @@
 :root {
-  --aquamarine: rgba(113, 255, 208, 1);
-  --medium-spring-green: rgba(12, 255, 154, 1);
-  --blue-sapphire: rgba(4, 92, 114, 1);
-  --dark-purple: rgba(62, 43, 66, 1);
-  --royal-purple: rgba(128, 76, 158, 1);
-  --medium-purple: rgba(164, 115, 255, 1);
-  --red: rgba(255, 10, 10, 1);
+  --color-light-primary: #fffffe;
+  --color-light-secondary: #eaddcf;
+  --color-dark-primary: #020826;
+  --color-dark-secondary: #716040;
+  --button-bg: #8c7851;
 }
