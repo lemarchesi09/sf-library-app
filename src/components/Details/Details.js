@@ -1,8 +1,8 @@
 //import { Link } from 'react-router-dom'
 import moment from 'moment';
 /* import image from '../assets/welcome-bg-1jpg' */
-import logo from '../assets/testBook.png'
-import '../styles/details.css'
+import logo from '../../assets/images/testBook.png'
+import './details.css'
 
 export const Details = () => {
   const bookCard = {
