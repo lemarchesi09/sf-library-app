@@ -1,0 +1,33 @@
+.book-item{
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    border: 1px solid black;
+    height: 200px;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.dashboard-cont{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2%;
+    background-color: gray;
+
+}
+.button-cont{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.btn-upd{
+    background-color:dodgerblue;
+}
+.btn-dlt{
+    background-color:red;
+}
+.button{
+    width: 40%;
+}
