@@ -25,7 +25,7 @@ export const NavBar = () =>{
                 <Link to='/login' className="navbar__item-btn-login"><BsPersonCircle />Login</Link>
                 
                 {/*****************/}
-                {/*<Link to='/book'>AddBook</Link>  <------BORRAR!! */}
+                {/*<Link to='/createbook'>AddBook</Link>  <------BORRAR!! */}
                 {/*****************/}
             </ul>
         </div>
