@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+*:focus {
+  outline: none;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 600px;
+    padding: 0rem 3rem;
+  }
+}
