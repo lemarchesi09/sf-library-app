@@ -27,22 +27,28 @@ export const Dashboard = () =>{
     }, [])
     console.log('books', books);
     return(
-        <div className="dashboard-cont">
-        {books.map((book,index) => {
-            return(
-                <div key={index} className="book-item">
-                    <h3>{book.title}</h3>
-                    <p>{book.author}</p>
-                    <img src={book.imageLink} />
-                    <div className="button-cont">
+        <div className="dashboard">
+            <div className="dashboard-text">
+                <h2>Libros</h2>
+                <button className="btn-crt"><Link to="/createBook">ADD Book</Link></button>
+            </div>
+            <div className="dashboard-cont">
+            {books.map((book,index) => {
+                return(
+                    <div key={index} className="book-item">
+                        <h3>{book.title}</h3>
+                        <p>{book.author}</p>
+                        <img src={book.imageLink} />
+                        <div className="button-cont">
 
-                        <button className="button btn-upd"><Link to="/update">Update</Link></button>
-                        <button className="button btn-dlt" onClick={() =>{deleteBook(book.title)}}>Delete</button>
+                            <button className="button btn-upd"><Link to="/update">Update</Link></button>
+                            <button className="button btn-dlt" onClick={() =>{deleteBook(book.title)}}>Delete</button>
+                        </div>
                     </div>
-                </div>
 
-            )
-        })}
-       </div> 
+                )
+            })}
+        </div> 
+        </div>
     )
 }

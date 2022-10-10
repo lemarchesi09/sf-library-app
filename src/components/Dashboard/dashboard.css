@@ -1,3 +1,11 @@
+.dashboard{
+
+}
+.dashboard-text{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .book-item{
     background-color: rgb(255, 255, 255);
     width: 200px;
@@ -21,6 +29,11 @@
     display: flex;
     justify-content: space-between;
     
+}
+
+.btn-crt{
+    width: 15%;
+    background-color: lightgreen;
 }
 .btn-upd{
     background-color:dodgerblue;
