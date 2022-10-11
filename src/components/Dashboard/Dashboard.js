@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./dashboard.css";
 import json from"../../json/books.json";
 import { Link } from "react-router-dom";
-import imagen from "../../assets/images/testBook.png"
+
 
 export const Dashboard = () =>{
     const [books, setBooks] = useState([{}]) 

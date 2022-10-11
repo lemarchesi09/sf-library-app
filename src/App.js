@@ -7,6 +7,7 @@ import { Footer } from "./components/Footer/Footer";
 import { Create } from "./components/Create";
 import { Welcome } from "./pages/Welcome/Welcome";
 import CreateBook from "./components/CreateBook/CreateBook";
+import { Login } from "./components/Login/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         {/*Agregar enrutado dinamico con uso de id*/}
         <Route path="/details" element={<Details />} />
