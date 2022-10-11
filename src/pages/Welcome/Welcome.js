@@ -1,6 +1,5 @@
 import "./welcome.css";
 import { Link } from "react-router-dom";
-
 export const Welcome = () => {
   return (
     <div className="welcome-cont">

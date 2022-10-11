@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./dashboard.css";
 import json from"../../json/books.json";
 import { Link } from "react-router-dom";
+import imagen from "../../assets/images/testBook.png"
 
 export const Dashboard = () =>{
     const [books, setBooks] = useState([{}]) 
@@ -21,7 +22,7 @@ export const Dashboard = () =>{
         console.log('Delete Book');
     }
 
-    // LLamado y seto de estado
+    // LLamado y seteo de estado
     useEffect(() =>{
         setBooks(json)
     }, [])
@@ -38,7 +39,8 @@ export const Dashboard = () =>{
                     <div key={index} className="book-item">
                         <h3>{book.title}</h3>
                         <p>{book.author}</p>
-                        <img src={book.imageLink} />
+                        <img src={book.imageLink} alt="img-card" />
+                        {console.log(book.imageLink)}
                         <div className="button-cont">
 
                             <button className="button btn-upd"><Link to="/update">Update</Link></button>
