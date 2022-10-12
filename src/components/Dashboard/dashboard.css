@@ -1,0 +1,55 @@
+.dashboard{
+
+}
+.dashboard-text{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.book-item{
+    background-color: rgb(255, 255, 255);
+    width: 240px;
+    border: 1px solid black;
+    height: 240px;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 2%;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-item img{
+    height: 60%;
+    width: fit-content;;
+}
+
+.dashboard-cont{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2%;
+    background-color: gray;
+
+}
+.button-cont{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.btn-crt{
+    width: 15%;
+    background-color: lightgreen;
+}
+.btn-upd{
+    background-color:dodgerblue;
+}
+.btn-dlt{
+    background-color:red;
+}
+.button{
+    width: 85%;
+}

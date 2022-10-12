@@ -1,6 +1,7 @@
 import "./footer.css";
 import "../../styles/styles.css";
 
+
 export const Footer = () => {
   return (
     <div className="foot-cont">
