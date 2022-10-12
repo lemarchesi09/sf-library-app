@@ -40,7 +40,6 @@ export const Dashboard = () =>{
                         <h3>{book.title}</h3>
                         <p>{book.author}</p>
                         <img src={book.imageLink} alt="img-card" />
-                        {console.log(book.imageLink)}
                         <div className="button-cont">
 
                             <button className="button btn-upd"><Link to="/update">Update</Link></button>
