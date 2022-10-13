@@ -15,6 +15,7 @@ export const Details = () => {
     id: "f9dc02d7-e4bb-44e3-b55a-7be910a1dd48",
     //y la imagen??? <---- falta agregar este input en el componente Create Book
   };
+  
 
   function splitString(stringToSplit, separator) {
     const arrayOfStrings = stringToSplit.split(separator)
@@ -57,11 +58,13 @@ export const Details = () => {
         </div>
 
       </div>
+      
 
 {/*       <Link to={back}>
       </Link> */}
         <button className="button__back">back</button>
 
     </div>
+    
   );
 };

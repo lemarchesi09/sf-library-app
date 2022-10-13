@@ -1,0 +1,39 @@
+.form__cont{
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/images/welcome-bg-3.jpg);
+    background-size: cover;
+}
+.formu{
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 30vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 80%;
+    padding: 3%;
+}   
+.form__inp{
+    padding: 3%;
+    border-radius: 10px;
+    margin: 3% 0%;
+}
+
+.form__sub{
+    width: 30%;
+    padding: 3%;
+    border-radius: 10px;
+    margin-top: 10%;
+    align-self: center;
+}
+label{
+    color: white;
+}
+span{
+    align-self: flex-end;
+}
