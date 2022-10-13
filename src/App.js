@@ -4,7 +4,6 @@ import { Details } from "./components/Details/Details";
 import { Home } from "./pages/Home/Home";
 import { NavBar } from "./components/NavBar/NavBar";
 import { Footer } from "./components/Footer/Footer";
-import { Create } from "./components/Create";
 import { Welcome } from "./pages/Welcome/Welcome";
 import CreateBook from "./components/CreateBook/CreateBook";
 import { Login } from "./components/Login/Login";
@@ -20,8 +19,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         {/*Agregar enrutado dinamico con uso de id*/}
-        <Route path="/details" element={<Details />} />
-        <Route path="/create" element={<Create />} />
+        <Route path="/details:book" element={<Details />} />
         {/*****************/}
         <Route path="/createbook" element={<CreateBook />} /> {/* <------BORRAR!! */}
         {/*****************/}

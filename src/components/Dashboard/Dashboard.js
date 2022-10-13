@@ -40,8 +40,8 @@ export const Dashboard = () =>{
                         <h3>{book.title}</h3>
                         <p>{book.author}</p>
                         <img src={book.imageLink} alt="img-card" />
+                        <Link to={`/details/${book.title}`}><button className="button btn-info">More info</button></Link>            
                         <div className="button-cont">
-
                             <button className="button btn-upd"><Link to="/update">Update</Link></button>
                             <button className="button btn-dlt" onClick={() =>{deleteBook(book.title)}}>Delete</button>
                         </div>
