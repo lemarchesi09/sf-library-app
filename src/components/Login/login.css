@@ -1,39 +1,82 @@
-.form__cont{
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/images/welcome-bg-3.jpg);
-    background-size: cover;
-}
-.formu{
-    background-color: green;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 30vh;
-    border: 1px solid black;
-    border-radius: 10px;
-    width: 80%;
-    padding: 3%;
-}   
-.form__inp{
-    padding: 3%;
-    border-radius: 10px;
-    margin: 3% 0%;
+.form__cont {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 90vh;
 }
 
-.form__sub{
+.login__bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/images/welcome-bg-3.jpg);
+  background-size: cover;
+}
+.formu {
+  background-color: var(--color-light-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 3px;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  max-width: 400px;
+  max-height: 400px;
+}
+.form__inp {
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin: 0.5rem 0rem;
+  border: 1px solid #ccc;
+  background-color: var(--color-light-primary);
+  color: var(--color-dark-primary);
+}
+
+.form__sub {
+  width: 30%;
+  border-radius: 3px;
+  align-self: center;
+  background-color: var(--button-bg);
+  color: var(--color-light-primary);
+  font-weight: 700;
+  margin: 1rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.form__sub:hover {
+  opacity: 0.5;
+}
+
+label {
+  font-size: 1.2rem;
+  color: var(--color-dark-primary);
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+span {
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 320px) {
+  .formu {
+    padding: 0.5rem 1.5rem;
+    margin: 0rem 1rem;
+    min-width: 280px;
+  }
+  .form__inp {
+    padding: 0.5rem;
+    margin: 0.1rem 0rem;
+  }
+
+  .form__sub {
     width: 30%;
-    padding: 3%;
-    border-radius: 10px;
-    margin-top: 10%;
-    align-self: center;
-}
-label{
-    color: white;
-}
-span{
-    align-self: flex-end;
+    margin: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.5rem;
+    cursor: pointer;
+  }
 }
