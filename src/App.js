@@ -7,7 +7,7 @@ import { Footer } from "./components/Footer/Footer";
 import { Welcome } from "./pages/Welcome/Welcome";
 import CreateBook from "./components/CreateBook/CreateBook";
 import { Login } from "./components/Login/Login";
-
+import "./index.css";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         {/*Agregar enrutado dinamico con uso de id*/}
-        <Route path="/details:book" element={<Details />} />
+        <Route path="/details" element={<Details />} />
         {/*****************/}
         <Route path="/createbook" element={<CreateBook />} /> {/* <------BORRAR!! */}
         {/*****************/}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./dashboard.css";
 import json from"../../json/books.json";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 export const Dashboard = () =>{
@@ -17,9 +18,17 @@ export const Dashboard = () =>{
 
     // Controlador para borrar -> Hay que traspasarlo al store
     const deleteBook = (title) =>{
-        const updBooks = books.filter(book => book.title !== title)
-        setBooks(updBooks)
-        console.log('Delete Book');
+        Swal.fire({
+            title: "Are you shure?",
+            text: `You are about to delete this Book`,
+            icon: "warning",
+            confirmButtonText: "I'm Shure",
+        }).then(()=>{
+            const updBooks = books.filter(book => book.title !== title)
+            setBooks(updBooks)
+            console.log('Delete Book');
+        })
+        
     }
 
     // LLamado y seteo de estado
@@ -38,9 +47,9 @@ export const Dashboard = () =>{
                 return(
                     <div key={index} className="book-item">
                         <h3>{book.title}</h3>
-                        <p>{book.author}</p>
+                        <p><span>Author: </span>{book.author}</p>
                         <img src={book.imageLink} alt="img-card" />
-                        <Link to={`/details/${book.title}`}><button className="button btn-info">More info</button></Link>            
+                        <Link to={`/details/${book.title}`}><button className="button btn-info">Info</button></Link>            
                         <div className="button-cont">
                             <button className="button btn-upd"><Link to="/update">Update</Link></button>
                             <button className="button btn-dlt" onClick={() =>{deleteBook(book.title)}}>Delete</button>
