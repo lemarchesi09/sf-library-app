@@ -66,6 +66,26 @@ const CreateBook = () => {
 
         <div className="form__input-section">
           <label>
+            <h2 className="form__input-gender">Image: </h2>
+          </label>
+          <input
+            id="image"
+            className="form__input"
+            type="text"
+            placeholder="Enter the image URL"
+            autoComplete="off"
+            {...register("image", {
+              required: {
+                value: true,
+                message: "The image input is required",
+              },
+            })}
+          />
+        </div>
+        {errors.image && <span className="form__input-error">{errors.image.message}</span>}
+
+        <div className="form__input-section">
+          <label>
             <h2 className="form__input-gender">Gender: </h2>
           </label>
           <input
