@@ -1,29 +1,30 @@
 import "./footer.css";
 import "../../styles/styles.css";
 
-
 export const Footer = () => {
   return (
     <div className="foot-cont">
       <div className="foot-text">
         <div className="footer__text">
-          <p>Made by</p>
           <p>
-            <a href="https://github.com/SebaDAlessandro">Sebastian D.</a>
-          </p>
-          <p>
-            <a href="https://github.com/lemarchesi09">Enzo M.</a>
-          </p>
-          <p>
-            <a href="https://github.com/CamiStefano">Camila S.</a>
+            Made by{" "}
+            <a href="https://github.com/SebaDAlessandro" target="_blank" rel="noreferrer">
+              Sebastian D.
+            </a>{" "}
+            <a href="https://github.com/lemarchesi09" target="_blank" rel="noreferrer">
+              Enzo M.
+            </a>{" "}
+            <a href="https://github.com/CamiStefano" target="_blank" rel="noreferrer">
+              Camila S.
+            </a>
           </p>
         </div>
         <div className="footer__avalith">
-          <a href="https://www.avalith.net/" className="avalith__link" target="_blank" rel="noreferrer">
-            <p className="avalith">
+          <p className="avalith">
+            <a href="https://www.avalith.net/" className="avalith__link" target="_blank" rel="noreferrer">
               AVALITH<span className="punto">.</span>
-            </p>
-          </a>
+            </a>
+          </p>
         </div>
       </div>
     </div>
