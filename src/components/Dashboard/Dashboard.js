@@ -1,41 +1,51 @@
-//import { useEffect, useState } from "react";
 import "./dashboard.css";
-//import json from"../../json/books.json";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { deleteBook } from '../../features/books/booksSlice'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
+
+const MySwal = withReactContent(Swal)
 
 
 export const Dashboard = () =>{
-    //const [books, setBooks] = useState([{}]) 
 
     const books = useSelector((state)=> state.books)
 
     const dispatch = useDispatch()
 
-    // const getBooks = async () =>{
-    //     const response = await fetch(json)
-    //     console.log('response', response);
-    //     const data = await response.json()
-    //     console.log('data',data);
-    //     setBooks(data)
-    // }
-
-    // Controlador para borrar -> Hay que traspasarlo al store
-
     const handleDelete = (title) =>{
-        dispatch(
-            deleteBook(title)
-          )
+        MySwal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(
+                    deleteBook(title)
+                  )
+                  MySwal.fire({
+                    title:'Delete book',
+                    text:'the book was successfully removed',
+                    icon:'success',
+                    confirmButtonText: 'Ok',
+                  })
+            }
+          })
 
     }
 
-    // LLamado y seteo de estado
-/*     useEffect(() =>{
-        setBooks(booksFromStore)
-    }, []) */
-    //console.log('books', books);
+    const primerAuthor = (stringToSplit, separator) => {
+        const arrayOfStrings = stringToSplit.split(separator)      
+        return arrayOfStrings[0]
+      }
+    const comma = ';'
+    
     return(
         <div className="dashboard">
             <div className="dashboard-text">
@@ -47,13 +57,13 @@ export const Dashboard = () =>{
                 return(
                     <div key={index} className="book-item">
                         <h3>{book.title}</h3>
-                        <p><span>Author: </span>{book.author}</p>
+                        <p><span>Author: </span>{primerAuthor(book.author, comma)}</p>
                         <img src={book.imageLink} alt="img-card" />
 
                         <Link to={`/details/${index}`}><button className="button btn-info">More info</button></Link>            
 
                         <div className="button-cont">
-                            <button className="button btn-upd"><Link to="/update">Update</Link></button>
+                            <button className="button btn-upd"><Link to={`/update/${index}`}>Update</Link></button>
                             <button className="button btn-dlt" onClick={() =>{handleDelete(book.title)}}>Delete</button>
                         </div>
                     </div>

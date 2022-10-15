@@ -1,16 +1,37 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import "./createBook.css";
 import { v4 as uuidv4 } from "uuid";
-import { useDispatch } from "react-redux";
-import { addBook } from '../../features/books/booksSlice'
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { addBook, editBook } from '../../features/books/booksSlice'
+import { useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import { useEffect, useState } from 'react';
+
+const MySwal = withReactContent(Swal)
 
 
 const CreateBook = () => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const { index } = useParams()
+
+  const [book, setBook] = useState({
+    title:"",
+    image:"",
+    country:"",
+    year:"",
+    author:"",
+    synopsis:""
+  })
+  const books = useSelector((state)=> state.books)
+
+  useEffect(()=>{
+    if(index){
+      setBook(books[index])
+    }
+  },[])
 
   const {
     register,
@@ -19,20 +40,76 @@ const CreateBook = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
-    //console.log('imagen desde Form: ',typeof(data.image))
 
-    dispatch(addBook({
-      title: data.title.trim(),
-      imageLink: data.image,
-      country: data.country.trim(),
-      year: data.year,
-      author: data.author.trim(),
-      synopsis: data.synopsis.trim(),
-      id: uuidv4(),}))
-    navigate('/dashboard')
+    if(index){
+      try {
+        console.log('entrando al edit')
+        dispatch(editBook({
+          index,
+          title: data.title.trim(),
+          imageLink: data.image,
+          country: data.country.trim(),
+          year: data.year,
+          author: data.author.trim(),
+          synopsis: data.synopsis.trim(),
+          id: uuidv4(),}))
+        navigate('/dashboard')
+        MySwal.fire({
+          title: 'Updated!',
+          text: 'Your book was successfully updated',
+          icon: 'success',
+          confirmButtonText: 'Ok',
+        }) 
+    
+        // limpiar campos
+        e.target.reset();
+  
+      } catch (error) {
+  
+        console.log(error)
+        MySwal.fire({
+          title: 'Error!',
+          text: 'Sorry... your book was not successfully updated',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        }) 
+  
+      }
+    }else{
+      try {
 
-    // limpiar campos
-    e.target.reset();
+        dispatch(addBook({
+          title: data.title.trim(),
+          imageLink: data.image,
+          country: data.country.trim(),
+          year: data.year,
+          author: data.author.trim(),
+          synopsis: data.synopsis.trim(),
+          id: uuidv4(),}))
+        navigate('/dashboard')
+        MySwal.fire({
+          title: 'Created!',
+          text: 'Your book was successfully uploaded to the database',
+          icon: 'success',
+          confirmButtonText: 'Ok',
+        }) 
+    
+        // limpiar campos
+        e.target.reset();
+  
+      } catch (error) {
+  
+        console.log(error)
+        MySwal.fire({
+          title: 'Error!',
+          text: 'Sorry... your book was not successfully uploaded to the database',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        }) 
+  
+      }
+    }
+
   };
 
   return (
@@ -52,6 +129,7 @@ const CreateBook = () => {
             type="text"
             placeholder="Max 30 characters"
             autoComplete="off"
+            defaultValue = {book.title}
             {...register("title", {
               required: {
                 value: true,
@@ -76,6 +154,7 @@ const CreateBook = () => {
             type="text"
             placeholder="Enter the image URL"
             autoComplete="off"
+            defaultValue = {book.imageLink}
             {...register("image", {
               required: {
                 value: true,
@@ -96,6 +175,7 @@ const CreateBook = () => {
             type="text"
             placeholder="Max 20 letters"
             autoComplete="off"
+            defaultValue = {book.country}
             {...register("country", {
               required: {
                 value: true,
@@ -117,9 +197,10 @@ const CreateBook = () => {
           <input
             id="year"
             className="form__input"
-            type="date"
+            type="number"
             placeholder="Max 30 letters"
             autoComplete="off"
+            defaultValue = {book.year}
             {...register("year", {
               required: {
                 value: true,
@@ -140,6 +221,7 @@ const CreateBook = () => {
             type="text"
             placeholder="Max 30 letters"
             autoComplete="off"
+            defaultValue = {book.author}
             {...register("author", {
               required: {
                 value: true,
@@ -164,6 +246,7 @@ const CreateBook = () => {
             id="synopsis"
             rows="5"
             placeholder="Please enter a short summary"
+            defaultValue = {book.synopsis}
             {...register("synopsis", {
               required: "The synopsis input is required",
             })}
