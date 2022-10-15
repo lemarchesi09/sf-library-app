@@ -19,10 +19,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         {/*Agregar enrutado dinamico con uso de id*/}
-        <Route path="/details:book" element={<Details />} />
-        {/*****************/}
-        <Route path="/createbook" element={<CreateBook />} /> {/* <------BORRAR!! */}
-        {/*****************/}
+        <Route path="/details/:index" element={<Details />} />
+        <Route path="/createbook" element={<CreateBook />} />
       </Routes>
       <Footer />
     </div>

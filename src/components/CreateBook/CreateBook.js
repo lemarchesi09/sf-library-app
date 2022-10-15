@@ -2,35 +2,37 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "./createBook.css";
 import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
+import { addBook } from '../../features/books/booksSlice'
+import { useNavigate } from 'react-router-dom';
+
 
 const CreateBook = () => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  //console.log(errors)
-
   const onSubmit = (data, e) => {
-    const bookData = {
+    //console.log('imagen desde Form: ',typeof(data.image))
+
+    dispatch(addBook({
       title: data.title.trim(),
-      gender: data.gender.trim(),
+      imageLink: data.image,
+      country: data.country.trim(),
       year: data.year,
       author: data.author.trim(),
       synopsis: data.synopsis.trim(),
-      id: uuidv4(),
-      //author: [string, string, string]
-    };
-
-    console.log(bookData);
+      id: uuidv4(),}))
+    navigate('/dashboard')
 
     // limpiar campos
     e.target.reset();
-  };
-
-  const addAuthors = () => {
-    console.log("click");
   };
 
   return (
@@ -86,18 +88,18 @@ const CreateBook = () => {
 
         <div className="form__input-section">
           <label>
-            <h2 className="form__input-gender">Gender: </h2>
+            <h2 className="form__input-gender">Country: </h2>
           </label>
           <input
-            id="gender"
+            id="country"
             className="form__input"
             type="text"
             placeholder="Max 20 letters"
             autoComplete="off"
-            {...register("gender", {
+            {...register("country", {
               required: {
                 value: true,
-                message: "The gender input is required",
+                message: "The country input is required",
               },
               maxLength: {
                 value: 20,
@@ -106,7 +108,7 @@ const CreateBook = () => {
             })}
           />
         </div>
-        {errors.gender && <span className="form__input-error">{errors.gender.message}</span>}
+        {errors.country && <span className="form__input-error">{errors.country.message}</span>}
 
         <div className="form__input-section">
           <label>
@@ -149,7 +151,6 @@ const CreateBook = () => {
               },
             })}
           />
-          <span onClick={addAuthors}>(+)</span>
         </div>
         {errors.author && <span className="form__input-error">{errors.author.message}</span>}
 
