@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4rem;
+  height: 20vh;
 }
 
 .foot-text {
@@ -68,7 +68,6 @@
     padding: 0.5rem;
   }
   .foot-cont {
-    height: 5rem;
     padding: 4rem 0rem;
   }
 }
