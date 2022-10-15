@@ -16,16 +16,6 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className="container home__secondSection">
-        <div className="home__paragraph">
-          <p>Lorem aksjkasjashsfh sadadsadsd dsad sa sad sdasd</p>
-          <img className="home__image" src={imageBooks} alt=""></img>
-        </div>
-        <div className="home__paragraph">
-          <p>Lorem aksjkasjashs dasdsd sadasdsd adasd sadsd asdad</p>
-          <img className="home__image" src={imageBooks} alt=""></img>
-        </div>
-      </div>
     </div>
   );
 };
