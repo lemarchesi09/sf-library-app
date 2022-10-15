@@ -1,12 +1,18 @@
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 import "./dashboard.css";
-import json from"../../json/books.json";
+//import json from"../../json/books.json";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import { useSelector, useDispatch } from 'react-redux'
+import { deleteBook } from '../../features/books/booksSlice'
+
 
 
 export const Dashboard = () =>{
-    const [books, setBooks] = useState([{}]) 
+    //const [books, setBooks] = useState([{}]) 
+
+    const books = useSelector((state)=> state.books)
+
+    const dispatch = useDispatch()
 
     // const getBooks = async () =>{
     //     const response = await fetch(json)
@@ -17,25 +23,19 @@ export const Dashboard = () =>{
     // }
 
     // Controlador para borrar -> Hay que traspasarlo al store
-    const deleteBook = (title) =>{
-        Swal.fire({
-            title: "Are you shure?",
-            text: `You are about to delete this Book`,
-            icon: "warning",
-            confirmButtonText: "I'm Shure",
-        }).then(()=>{
-            const updBooks = books.filter(book => book.title !== title)
-            setBooks(updBooks)
-            console.log('Delete Book');
-        })
-        
+
+    const handleDelete = (title) =>{
+        dispatch(
+            deleteBook(title)
+          )
+
     }
 
     // LLamado y seteo de estado
-    useEffect(() =>{
-        setBooks(json)
-    }, [])
-    console.log('books', books);
+/*     useEffect(() =>{
+        setBooks(booksFromStore)
+    }, []) */
+    //console.log('books', books);
     return(
         <div className="dashboard">
             <div className="dashboard-text">
@@ -49,10 +49,12 @@ export const Dashboard = () =>{
                         <h3>{book.title}</h3>
                         <p><span>Author: </span>{book.author}</p>
                         <img src={book.imageLink} alt="img-card" />
-                        <Link to={`/details/${book.title}`}><button className="button btn-info">Info</button></Link>            
+
+                        <Link to={`/details/${index}`}><button className="button btn-info">More info</button></Link>            
+
                         <div className="button-cont">
                             <button className="button btn-upd"><Link to="/update">Update</Link></button>
-                            <button className="button btn-dlt" onClick={() =>{deleteBook(book.title)}}>Delete</button>
+                            <button className="button btn-dlt" onClick={() =>{handleDelete(book.title)}}>Delete</button>
                         </div>
                     </div>
 
