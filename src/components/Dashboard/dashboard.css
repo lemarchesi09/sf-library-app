@@ -1,13 +1,21 @@
 .dashboard{
-
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/images/welcome-bg-3.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 }
 .dashboard-text{
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: var(--color-light-secondary);
+    padding: 1%;
+}
+.dashboard-text h2{
+    font-size: 1.5rem;
 }
 .book-item{
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.486);
     width: 70%; 
     height: auto;
     border: 1px solid black;
@@ -29,8 +37,12 @@
     justify-content: center;
     flex-wrap: wrap;
     padding: 2%;
-    background-color: gray;
+    
 
+}
+.book-item h3,span{
+    font-weight: 900;
+    color: var(--color-dark-primary);
 }
 .button-cont{
     display: flex;
@@ -40,18 +52,44 @@
 }
 
 .btn-crt{
-    width: 15%;
     background-color: lightgreen;
+    position: relative;
+    left: 19%;
+    border-radius: 5px;
+    padding: 1%;
+    height: 6vh;
+    display: flex;
+    align-items: center;
 }
 .btn-upd{
-    background-color:dodgerblue;
+    background-color:rgb(109, 179, 248);
 }
 .btn-dlt{
     background-color:red;
 }
+
 .button{
-    width: 85%;
     border-radius: 5px;
+    padding: 2%;
+    font-size: 1.1rem;
+    color: var(--color-dark-primary);
+}
+button a{
+    text-decoration: none;
+    color: var(--color-dark-primary);
+}
+.btn-info{
+    padding: 2%;
+}
+
+.book-item:hover{
+    transform: scale(1.01);
+    transition: all 0.5s ease-in-out;
+}
+button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {
@@ -59,5 +97,7 @@
     .book-item{
         width: 25%;
     }
-    
+    .btn-crt{
+        left: 29%;
+    }
 }
