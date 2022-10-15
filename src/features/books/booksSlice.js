@@ -8,7 +8,17 @@ const booksSlice = createSlice({
    initialState,
    reducers: {
     addBook: (state, action)=>{
-        state.push(action.payload)
+        state.unshift(action.payload)
+    },
+    editBook: (state, action)=>{
+        const { index, title, imageLink, country, year, author, synopsis } = action.payload
+        console.log(index)
+        state[index].title = title
+        state[index].imageLink = imageLink
+        state[index].country = country
+        state[index].year = year
+        state[index].author = author
+        state[index].synopsis = synopsis
     },
     deleteBook: (state, action)=>{
         return state.filter(book => book.title !== action.payload)
@@ -17,6 +27,6 @@ const booksSlice = createSlice({
 })
 
 
-//export const {addBooks, deleteBooks, editBooks} = booksSlice.actions
-export const { addBook, deleteBook } = booksSlice.actions
+//editBooks
+export const { addBook, deleteBook, editBook } = booksSlice.actions
 export default booksSlice.reducer

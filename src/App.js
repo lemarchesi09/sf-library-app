@@ -21,6 +21,7 @@ function App() {
         {/*Agregar enrutado dinamico con uso de id*/}
         <Route path="/details/:index" element={<Details />} />
         <Route path="/createbook" element={<CreateBook />} />
+        <Route path="/update/:index" element={<CreateBook />} />
 
       </Routes>
       <Footer />
