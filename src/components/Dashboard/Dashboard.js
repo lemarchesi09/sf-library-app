@@ -12,6 +12,9 @@ const MySwal = withReactContent(Swal)
 export const Dashboard = () =>{
 
     const books = useSelector((state)=> state.books)
+    const usersFromStore = useSelector((state)=> state.users)
+    const userFinded = usersFromStore.find((usuario) => usuario.active === true);
+    console.log(userFinded);
 
     const dispatch = useDispatch()
 
@@ -50,7 +53,10 @@ export const Dashboard = () =>{
         <div className="dashboard">
             <div className="dashboard-text">
                 <h2>Libros</h2>
-                <button className="btn-crt"><Link to="/createBook">ADD Book</Link></button>
+                {userFinded  ?
+                    <button className="btn-crt"><Link to="/createBook">ADD Book</Link></button>
+                    : <></>    
+                }
             </div>
             <div className="dashboard-cont">
             {books.map((book,index) => {
@@ -61,11 +67,13 @@ export const Dashboard = () =>{
                         <img src={book.imageLink} alt="img-card" />
 
                         <Link to={`/details/${index}`}><button className="button btn-info">More info</button></Link>            
-
-                        <div className="button-cont">
-                            <button className="button btn-upd"><Link to={`/update/${index}`}>Update</Link></button>
-                            <button className="button btn-dlt" onClick={() =>{handleDelete(book.title)}}>Delete</button>
-                        </div>
+                        {userFinded ?
+                            <div className="button-cont">
+                                <button className="button btn-upd"><Link to={`/update/${index}`}>Update</Link></button>
+                                <button className="button btn-dlt" onClick={() =>{handleDelete(book.title)}}>Delete</button>
+                            </div>
+                            : <></>
+                    }
                     </div>
 
                 )

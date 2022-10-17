@@ -25,6 +25,7 @@ export const Details = () => {
           <h2 className="property__book"><span className="data">Year:</span>{" "}{books[index].year}</h2>
           <h2 className="property__book"><span className="data">Country:</span> {books[index].country}</h2>
           <a href={`${books[index].link}`} target='_blanck' className="property__book"><span className="data">Link:</span> {books[index].link}</a>
+
             {/* <h2 className="property__book synopsis"><span className="data-synopsis">Synopsis:</span> {books[index].synopsis}</h2> */}
         </div>
 
