@@ -10,6 +10,10 @@
 }
 .home__wrapper {
   width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
 }
 .home__firstSection {
   display: flex;
@@ -27,6 +31,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  flex: 5;
+}
+
+.home__image {
+  flex: 5;
 }
 
 .home__image img {
@@ -41,7 +50,7 @@
   font-size: 1.5rem;
   line-height: 1.5rem;
   font-weight: 400;
-  padding: 3rem 0rem;
+  padding: 2rem 0rem;
 }
 
 @media (max-width: 600px) {
