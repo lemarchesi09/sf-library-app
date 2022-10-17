@@ -37,6 +37,10 @@
     padding: 5px 0; 
     
 }
+.property__book-link{
+    text-decoration: none;
+    
+}
 
 .data {
     color: orangered;
