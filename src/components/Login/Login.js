@@ -12,7 +12,7 @@ export const Login = () => {
   const navigate = useNavigate();
   // Traer el estado de loginSlice desde store
   const usersFromStore = useSelector((state)=> state.users)
-  console.log('usersFromStore', usersFromStore);
+  // console.log('usersFromStore', usersFromStore);
 
   const {
     register,
@@ -26,17 +26,26 @@ export const Login = () => {
   //   user: "enzo",
   //   password: "contraseña",
   // });
+
+
+  console.log("Users", usersFromStore)
   const onSubmit = (data, e) => {
     const fields = {
       user: data.user,
       password: data.password,
     };
-    console.log("Fields", data.user, data.password);
-    console.log("Users", usersFromStore.user, usersFromStore.password);
-    if (data.user === usersFromStore.user && data.password === usersFromStore.password) {
+    // console.log("Fields", data.user, data.password);
+    // console.log("Users", usersFromStore.user, usersFromStore.password);
+    console.log("Users", usersFromStore)
+    
+
+    // if (data.user === usersFromStore.user && data.password === usersFromStore.password) {
+    if(usersFromStore.find((usuario) => usuario.user === data.user) && usersFromStore.find((usuario) => usuario.password === data.password)) {
+      const idCapturado = usersFromStore.find((usuario) => usuario.user === data.user);
+      console.log('idCapturado', idCapturado);
       console.log("Usuario Logeado");
       // Cambiar el estado del store login por true
-      dispatch(logged())
+      dispatch(logged(idCapturado.id))
       Swal.fire({
         title: "Log in success!",
         text: `Welcome ${data.user.toUpperCase()}`,

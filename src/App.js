@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
+import { NavBar } from "./components/NavBar/NavBar";
 import { Dashboard } from "./components/Dashboard/Dashboard";
 import { Details } from "./components/Details/Details";
 import { Home } from "./pages/Home/Home";
-import { NavBar } from "./components/NavBar/NavBar";
-import { Footer } from "./components/Footer/Footer";
 import { Welcome } from "./pages/Welcome/Welcome";
 import CreateBook from "./components/CreateBook/CreateBook";
 import { Login } from "./components/Login/Login";
 import { Register } from "./components/Register/Register";
+import { Footer } from "./components/Footer/Footer";
 import "./index.css";
 
 function App() {
