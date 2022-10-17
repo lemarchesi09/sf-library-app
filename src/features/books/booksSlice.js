@@ -12,7 +12,7 @@ const booksSlice = createSlice({
     },
     editBook: (state, action)=>{
         const { index, title, imageLink, country, year, author, synopsis } = action.payload
-        console.log(index)
+        //console.log(index)
         state[index].title = title
         state[index].imageLink = imageLink
         state[index].country = country

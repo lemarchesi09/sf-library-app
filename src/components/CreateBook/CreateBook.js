@@ -43,7 +43,6 @@ const CreateBook = () => {
 
     if(index){
       try {
-        console.log('entrando al edit')
         dispatch(editBook({
           index,
           title: data.title.trim(),
@@ -53,7 +52,7 @@ const CreateBook = () => {
           author: data.author.trim(),
           synopsis: data.synopsis.trim(),
           id: uuidv4(),}))
-        navigate('/dashboard')
+        navigate(`/details/${index}`)
         MySwal.fire({
           title: 'Updated!',
           text: 'Your book was successfully updated',
