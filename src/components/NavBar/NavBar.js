@@ -4,10 +4,19 @@ import "./navBar.css";
 import { BsSearch, BsPersonCircle } from "react-icons/bs";
 import {FiBook, FiBookOpen} from "react-icons/fi";
 import logo from "../../assets/images/bookstore-removebg.png";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {logged} from '../../features/login/loginSlice';
 
 export const NavBar = () => {
   const usersFromStore = useSelector((state)=> state.users)
+  const dispatch = useDispatch();
+  const userFinded = usersFromStore.find((usuario) => usuario.active === true);
+  const handleLog = (id) =>{
+    dispatch(logged(id))
+    console.log('userFinded', id);
+  }
+  console.log('userFinded', userFinded);
+  console.log('fuera del handle', usersFromStore);
   return (
     <nav className="navbar__container">
       <ul className="navbar__links">
@@ -15,11 +24,11 @@ export const NavBar = () => {
           <Link to="/" className="navbar__item-logo">
             <img className="navbar__item-logo-img" src={logo} alt="img logo"></img>
           </Link>
-          {usersFromStore.active === false ?
+          {!userFinded ?
           <Link to="/login" className="navbar__item-btn-login-mobil">
               <FiBook /> Login
           </Link>
-          :  <p className="navbar__item-loged-mobil"><FiBookOpen/> Logeado</p>}
+          :  <p className="navbar__item-loged-mobil" onClick={() => handleLog(userFinded.id)}><FiBookOpen/> Logged</p>}
         </div>
         <div className="navbar__item-search-container">
           <li className="navbar__item-search">
@@ -29,15 +38,13 @@ export const NavBar = () => {
             <BsSearch />
           </li>
         </div>
-        {usersFromStore.active === false ? 
+        {!userFinded ? 
         <Link to="/login" className="navbar__item-btn-login">
           <FiBook /> Login
         </Link>
-        : <p className="navbar__item-loged"><FiBookOpen/> Logeado</p>}
+        : <p className="navbar__item-loged" onClick={() => handleLog(userFinded.id)}><FiBookOpen/> Logged</p>}
 
-        {/*****************/}
-        {/*<Link to='/book'>AddBook</Link>  <------BORRAR!! */}
-        {/*****************/}
+
       </ul>
     </nav>
   );

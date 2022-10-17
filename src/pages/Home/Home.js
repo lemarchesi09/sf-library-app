@@ -1,6 +1,7 @@
 import "./styles.css";
 import "../../styles/styles.css";
 import imageBooks from "../../assets/images/background-main.jpg";
+import {Link} from 'react-router-dom';
 
 export const Home = () => {
   return (
@@ -19,6 +20,9 @@ export const Home = () => {
         <div className="home__paragraph">
           <p>Aqui podras agregar tus propios libros para la comunidad.</p>
         </div>
+        <Link to="/dashboard" className="home__btn">
+          Comenzar !
+        </Link>
       </div>
     </div>
   );
