@@ -9,11 +9,15 @@ export const Home = () => {
         <div className="container home__firstSection">
           <div className="home__title">
             <h2>Te damos la bienvenida a Library App</h2>
-            <img className="home__image" src={imageBooks} alt=""></img>
           </div>
-          <div className="home__paragraph">
-            <p>Aqui podras agregar agregar tus propios libros para la comunidad.</p>
+          <div className="home__image">
+            <img src={imageBooks} alt=""></img>
           </div>
+        </div>
+      </div>
+      <div className="container home__secondSection">
+        <div className="home__paragraph">
+          <p>Aqui podras agregar tus propios libros para la comunidad.</p>
         </div>
       </div>
     </div>

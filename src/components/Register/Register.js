@@ -1,10 +1,10 @@
-import "./login.css";
+import "./styles.css";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
-export const Login = () => {
+export const Register = () => {
   const {
     register,
     handleSubmit,
@@ -93,11 +93,11 @@ export const Login = () => {
           />
           {errors.password && <span>{errors.password.message}</span>}
 
-          <input className="form__sub" type="submit" value="LOG IN" />
+          <input className="form__sub" type="submit" value="SIGN UP" />
           <p className="formu__signUp">
-            Don't have an account yet?{" "}
-            <Link to="/register" className="formu__signUp__link">
-              SIGN UP
+            Already have an account?{" "}
+            <Link to="/login" className="formu__signUp__link">
+              LOG IN
             </Link>
           </p>
         </form>
