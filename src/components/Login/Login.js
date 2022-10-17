@@ -1,10 +1,19 @@
 import "./login.css";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import {logged} from '../../features/login/loginSlice';
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // Traer el estado de loginSlice desde store
+  const usersFromStore = useSelector((state)=> state.users)
+  console.log('usersFromStore', usersFromStore);
+
   const {
     register,
     handleSubmit,
@@ -13,31 +22,38 @@ export const Login = () => {
   } = useForm();
   // const [login, setLogin] = useState([{}])
 
-  const [users, setUsers] = useState({
-    user: "enzo",
-    password: "contraseña",
-  });
+  // const [users, setUsers] = useState({
+  //   user: "enzo",
+  //   password: "contraseña",
+  // });
   const onSubmit = (data, e) => {
     const fields = {
       user: data.user,
       password: data.password,
     };
     console.log("Fields", data.user, data.password);
-    console.log("Users", users.user, users.password);
-    if (data.user === users.user && data.password === users.password) {
+    console.log("Users", usersFromStore.user, usersFromStore.password);
+    if (data.user === usersFromStore.user && data.password === usersFromStore.password) {
       console.log("Usuario Logeado");
+      // Cambiar el estado del store login por true
+      dispatch(logged())
       Swal.fire({
         title: "Log in success!",
         text: `Welcome ${data.user.toUpperCase()}`,
         icon: "success",
         confirmButtonText: "Go ahead",
-      });
+      }).then((result) => {
+        // Una vez logeado, navegar al dashboard
+        if (result.isConfirmed){
+          navigate('/dashboard')
+        }
+      })
     } else {
       console.log("Datos invalidos");
       Swal.fire({
         title: "Log in Failed!",
         text: `Ups... invalid fields`,
-        icon: "error",
+        icon: "warning",
         confirmButtonText: "Try again",
       });
     }
