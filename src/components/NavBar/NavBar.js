@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import "../../styles/styles.css";
 import "./navBar.css";
 import { BsSearch, BsPersonCircle } from "react-icons/bs";
 import logo from "../../assets/images/bookstore-removebg.png";
 
 export const NavBar = () => {
   return (
-    <div className="navbar__container">
+    <nav className="navbar__container">
       <ul className="navbar__links">
         <div className="navbar__item">
           <Link to="/" className="navbar__item-logo">
@@ -33,6 +34,6 @@ export const NavBar = () => {
         {/*<Link to='/book'>AddBook</Link>  <------BORRAR!! */}
         {/*****************/}
       </ul>
-    </div>
+    </nav>
   );
 };
