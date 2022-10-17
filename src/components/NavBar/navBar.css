@@ -64,6 +64,11 @@
 .avalith__link {
   display: none;
 }
+@media screen and (min-width: 320px){
+    .navbar__item-loged{
+        display: none;
+      }
+}
 
 @media screen and (min-width: 768px) {
   .navbar__item {
@@ -84,6 +89,12 @@
 
   .navbar__item-btn-login-mobil {
     display: none;
+  }
+  .navbar__item-loged-mobil{
+    display: none;
+  }
+  .navbar__item-loged{
+    display: flex;
   }
 
   .avalith__link {

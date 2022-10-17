@@ -19,7 +19,7 @@ export const NavBar = () => {
           <Link to="/login" className="navbar__item-btn-login-mobil">
               <FiBook /> Login
           </Link>
-          :  <p><FiBookOpen/> Logeado</p>}
+          :  <p className="navbar__item-loged-mobil"><FiBookOpen/> Logeado</p>}
         </div>
         <div className="navbar__item-search-container">
           <li className="navbar__item-search">
@@ -33,7 +33,7 @@ export const NavBar = () => {
         <Link to="/login" className="navbar__item-btn-login">
           <FiBook /> Login
         </Link>
-        : <p><FiBookOpen/> Logeado</p>}
+        : <p className="navbar__item-loged"><FiBookOpen/> Logeado</p>}
 
         {/*****************/}
         {/*<Link to='/book'>AddBook</Link>  <------BORRAR!! */}
