@@ -95,7 +95,7 @@ export const Login = () => {
           {/* errors will return when field validation fails  */}
           {errors.user && <span>{errors.user.message}</span>}
 
-          <label>Password</label>
+          <label>Password:</label>
           <input
             className="form__inp"
             type="password"
