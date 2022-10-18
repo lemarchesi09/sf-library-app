@@ -16,14 +16,18 @@ const CreateBook = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { index } = useParams()
+  const date = new Date();
 
   const [book, setBook] = useState({
     title:"",
     image:"",
     country:"",
-    year:"",
+    year: "",
     author:"",
-    synopsis:""
+    language:"",
+    pages:"",
+    link:""
+
   })
   const books = useSelector((state)=> state.books)
 
@@ -50,7 +54,9 @@ const CreateBook = () => {
           country: data.country.trim(),
           year: data.year,
           author: data.author.trim(),
-          synopsis: data.synopsis.trim(),
+          language: data.language,
+          pages: data.pages,
+          link: data.link,
           id: uuidv4(),}))
         navigate(`/details/${index}`)
         MySwal.fire({
@@ -83,7 +89,9 @@ const CreateBook = () => {
           country: data.country.trim(),
           year: data.year,
           author: data.author.trim(),
-          synopsis: data.synopsis.trim(),
+          language: data.language,
+          pages: data.pages,
+          link: data.link,
           id: uuidv4(),}))
         navigate('/dashboard')
         MySwal.fire({
@@ -197,7 +205,6 @@ const CreateBook = () => {
             id="year"
             className="form__input"
             type="number"
-            placeholder="Max 30 letters"
             autoComplete="off"
             defaultValue = {book.year}
             {...register("year", {
@@ -218,7 +225,7 @@ const CreateBook = () => {
             id="author"
             className="form__input"
             type="text"
-            placeholder="Max 30 letters"
+            placeholder="1er Author - 2do Author"
             autoComplete="off"
             defaultValue = {book.author}
             {...register("author", {
@@ -227,31 +234,80 @@ const CreateBook = () => {
                 message: "The author input is required",
               },
               maxLength: {
-                value: 30,
-                message: "Must be less than 30 letters",
+                value: 60,
+                message: "Must be less than 60 letters",
               },
             })}
           />
         </div>
         {errors.author && <span className="form__input-error">{errors.author.message}</span>}
 
-        <div className="form__textarea-section">
+        <div className="form__input-section">
           <label>
-            <h2 className="form__input-synopsis">Synopsis: </h2>
+            <h2 className="form__input-author">Language: </h2>
           </label>
-          <textarea
-            className="form__textarea"
-            name="synopsis"
-            id="synopsis"
-            rows="5"
-            placeholder="Please enter a short summary"
-            defaultValue = {book.synopsis}
-            {...register("synopsis", {
-              required: "The synopsis input is required",
+          <input
+            id="language"
+            className="form__input"
+            type="text"
+            placeholder="Max 30 letters"
+            autoComplete="off"
+            defaultValue = {book.language}
+            {...register("language", {
+              required: {
+                value: true,
+                message: "The language input is required",
+              },
+              maxLength: {
+                value: 15,
+                message: "Must be less than 15 letters",
+              },
             })}
           />
         </div>
-        {errors.synopsis && <p className="form__input-error">{errors.synopsis.message}</p>}
+        {errors.language && <span className="form__input-error">{errors.language.message}</span>}
+
+        <div className="form__input-section">
+          <label>
+            <h2 className="form__input-author">Pages: </h2>
+          </label>
+          <input
+            id="pages"
+            className="form__input"
+            type="number"
+            autoComplete="off"
+            defaultValue = {book.pages}
+            {...register("pages", {
+              required: {
+                value: true,
+                message: "The pages input is required",
+              },
+            })}
+          />
+        </div>
+        {errors.pages && <span className="form__input-error">{errors.pages.message}</span>}
+
+        <div className="form__input-section">
+          <label>
+            <h2 className="form__input-author">Link: </h2>
+          </label>
+          <input
+            id="link"
+            className="form__input"
+            type="text"
+            placeholder="Enter the link URL"
+            autoComplete="off"
+            defaultValue = {book.link}
+            {...register("link", {
+              required: {
+                value: true,
+                message: "The link input is required",
+              },
+            })}
+          />
+        </div>
+        {errors.link && <span className="form__input-error">{errors.link.message}</span>}
+
 
         <button className="form__btn" id="formBtn">
           Load up

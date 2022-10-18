@@ -8,6 +8,7 @@
   justify-content: space-evenly;
   min-height: 70vh;
   width: 100vw;
+  margin-top: 6rem;
 }
 
 .form__container {
