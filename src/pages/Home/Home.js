@@ -24,7 +24,10 @@ export const Home = () => {
             <img src={imageHome} alt=""></img>
           </div>
           <div className="home__paragraph">
-            <p>You can read and add your own books into for all community. Enjoy it!</p>
+            <p>
+              You can read and add in your own books into for all community. Enjoy reading books whenever and wherever you want with our multiple
+              paltform.
+            </p>
             <div className="home__container__btn">
               <button className="home__btn">
                 {" "}
