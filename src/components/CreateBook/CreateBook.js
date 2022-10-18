@@ -16,7 +16,6 @@ const CreateBook = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { index } = useParams()
-  const date = new Date();
 
   const [book, setBook] = useState({
     title:"",

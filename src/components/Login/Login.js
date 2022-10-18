@@ -27,7 +27,7 @@ export const Login = () => {
   //   password: "contraseña",
   // });
 
-
+  console.log(watch())
   console.log("Users", usersFromStore)
   const onSubmit = (data, e) => {
     const fields = {
