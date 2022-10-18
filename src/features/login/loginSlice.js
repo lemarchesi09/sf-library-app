@@ -14,6 +14,13 @@ const initialState = [
         active: false,
         id: 2,
 
+    },
+    {
+        user: 'cami',
+        password: 'contraseña',
+        active: false,
+        id: 3,
+
     }
 ];
 
