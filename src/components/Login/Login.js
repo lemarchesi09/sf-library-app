@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {logged} from '../../features/login/loginSlice';
+import { logged } from "../../features/login/loginSlice";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
@@ -11,7 +11,7 @@ export const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // Traer el estado de loginSlice desde store
-  const usersFromStore = useSelector((state)=> state.users)
+  const usersFromStore = useSelector((state) => state.users);
   // console.log('usersFromStore', usersFromStore);
 
   const {
@@ -27,8 +27,8 @@ export const Login = () => {
   //   password: "contraseña",
   // });
 
-  console.log(watch())
-  console.log("Users", usersFromStore)
+  console.log(watch());
+  console.log("Users", usersFromStore);
   const onSubmit = (data, e) => {
     const fields = {
       user: data.user,
@@ -36,27 +36,28 @@ export const Login = () => {
     };
     // console.log("Fields", data.user, data.password);
     // console.log("Users", usersFromStore.user, usersFromStore.password);
-    console.log("Users", usersFromStore)
-    
+    console.log("Users", usersFromStore);
 
     // if (data.user === usersFromStore.user && data.password === usersFromStore.password) {
-    if(usersFromStore.find((usuario) => usuario.user === data.user) && usersFromStore.find((usuario) => usuario.password === data.password)) {
+    if (usersFromStore.find((usuario) => usuario.user === data.user) && usersFromStore.find((usuario) => usuario.password === data.password)) {
       const idCapturado = usersFromStore.find((usuario) => usuario.user === data.user);
-      console.log('idCapturado', idCapturado);
+      console.log("idCapturado", idCapturado);
       console.log("Usuario Logeado");
       // Cambiar el estado del store login por true
-      dispatch(logged(idCapturado.id))
+      dispatch(logged(idCapturado.id));
       Swal.fire({
         title: "Log in success!",
         text: `Welcome ${data.user.toUpperCase()}`,
         icon: "success",
         confirmButtonText: "Go ahead",
+        confirmButtonColor: "#8c7851",
+        cancelButtonColor: "#d33",
       }).then((result) => {
         // Una vez logeado, navegar al dashboard
-        if (result.isConfirmed){
-          navigate('/dashboard')
+        if (result.isConfirmed) {
+          navigate("/dashboard");
         }
-      })
+      });
     } else {
       console.log("Datos invalidos");
       Swal.fire({
@@ -64,6 +65,8 @@ export const Login = () => {
         text: `Ups... invalid fields`,
         icon: "warning",
         confirmButtonText: "Try again",
+        confirmButtonColor: "#8c7851",
+        cancelButtonColor: "#d33",
       });
     }
   };

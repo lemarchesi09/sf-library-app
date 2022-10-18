@@ -2,39 +2,36 @@ import { useForm } from "react-hook-form";
 import "./createBook.css";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
-import { addBook, editBook } from '../../features/books/booksSlice'
-import { useNavigate, useParams } from 'react-router-dom';
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-import { useEffect, useState } from 'react';
+import { addBook, editBook } from "../../features/books/booksSlice";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { useEffect, useState } from "react";
 
-const MySwal = withReactContent(Swal)
-
+const MySwal = withReactContent(Swal);
 
 const CreateBook = () => {
-
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const { index } = useParams()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { index } = useParams();
 
   const [book, setBook] = useState({
-    title:"",
-    image:"",
-    country:"",
+    title: "",
+    image: "",
+    country: "",
     year: "",
-    author:"",
-    language:"",
-    pages:"",
-    link:""
+    author: "",
+    language: "",
+    pages: "",
+    link: "",
+  });
+  const books = useSelector((state) => state.books);
 
-  })
-  const books = useSelector((state)=> state.books)
-
-  useEffect(()=>{
-    if(index){
-      setBook(books[index])
+  useEffect(() => {
+    if (index) {
+      setBook(books[index]);
     }
-  },[])
+  }, []);
 
   const {
     register,
@@ -43,79 +40,78 @@ const CreateBook = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
-
-    if(index){
+    if (index) {
       try {
-        dispatch(editBook({
-          index,
-          title: data.title.trim(),
-          imageLink: data.image,
-          country: data.country.trim(),
-          year: data.year,
-          author: data.author.trim(),
-          language: data.language,
-          pages: data.pages,
-          link: data.link,
-          id: uuidv4(),}))
-        navigate(`/details/${index}`)
+        dispatch(
+          editBook({
+            index,
+            title: data.title.trim(),
+            imageLink: data.image,
+            country: data.country.trim(),
+            year: data.year,
+            author: data.author.trim(),
+            language: data.language,
+            pages: data.pages,
+            link: data.link,
+            id: uuidv4(),
+          })
+        );
+        navigate(`/details/${index}`);
         MySwal.fire({
-          title: 'Updated!',
-          text: 'Your book was successfully updated',
-          icon: 'success',
-          confirmButtonText: 'Ok',
-        }) 
-    
+          title: "Updated!",
+          text: "Your book was successfully updated",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+
         // limpiar campos
         e.target.reset();
-  
       } catch (error) {
-  
-        console.log(error)
+        console.log(error);
         MySwal.fire({
-          title: 'Error!',
-          text: 'Sorry... your book was not successfully updated',
-          icon: 'error',
-          confirmButtonText: 'Ok',
-        }) 
-  
+          title: "Error!",
+          text: "Sorry... your book was not successfully updated",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
       }
-    }else{
+    } else {
       try {
-
-        dispatch(addBook({
-          title: data.title.trim(),
-          imageLink: data.image,
-          country: data.country.trim(),
-          year: data.year,
-          author: data.author.trim(),
-          language: data.language,
-          pages: data.pages,
-          link: data.link,
-          id: uuidv4(),}))
-        navigate('/dashboard')
+        dispatch(
+          addBook({
+            title: data.title.trim(),
+            imageLink: data.image,
+            country: data.country.trim(),
+            year: data.year,
+            author: data.author.trim(),
+            language: data.language,
+            pages: data.pages,
+            link: data.link,
+            id: uuidv4(),
+          })
+        );
+        navigate("/dashboard");
         MySwal.fire({
-          title: 'Created!',
-          text: 'Your book was successfully uploaded to the database',
-          icon: 'success',
-          confirmButtonText: 'Ok',
-        }) 
-    
+          title: "Created!",
+          text: "Your book was successfully uploaded to the database",
+          icon: "success",
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#8c7851",
+          cancelButtonColor: "#d33",
+        });
+
         // limpiar campos
         e.target.reset();
-  
       } catch (error) {
-  
-        console.log(error)
+        console.log(error);
         MySwal.fire({
-          title: 'Error!',
-          text: 'Sorry... your book was not successfully uploaded to the database',
-          icon: 'error',
-          confirmButtonText: 'Ok',
-        }) 
-  
+          title: "Error!",
+          text: "Sorry... your book was not successfully uploaded to the database",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
       }
     }
-
   };
 
   return (
@@ -135,7 +131,7 @@ const CreateBook = () => {
             type="text"
             placeholder="Max 30 characters"
             autoComplete="off"
-            defaultValue = {book.title}
+            defaultValue={book.title}
             {...register("title", {
               required: {
                 value: true,
@@ -160,7 +156,7 @@ const CreateBook = () => {
             type="text"
             placeholder="Enter the image URL"
             autoComplete="off"
-            defaultValue = {book.imageLink}
+            defaultValue={book.imageLink}
             {...register("image", {
               required: {
                 value: true,
@@ -181,7 +177,7 @@ const CreateBook = () => {
             type="text"
             placeholder="Max 20 letters"
             autoComplete="off"
-            defaultValue = {book.country}
+            defaultValue={book.country}
             {...register("country", {
               required: {
                 value: true,
@@ -205,7 +201,7 @@ const CreateBook = () => {
             className="form__input"
             type="number"
             autoComplete="off"
-            defaultValue = {book.year}
+            defaultValue={book.year}
             {...register("year", {
               required: {
                 value: true,
@@ -226,7 +222,7 @@ const CreateBook = () => {
             type="text"
             placeholder="1er Author - 2do Author"
             autoComplete="off"
-            defaultValue = {book.author}
+            defaultValue={book.author}
             {...register("author", {
               required: {
                 value: true,
@@ -251,7 +247,7 @@ const CreateBook = () => {
             type="text"
             placeholder="Max 30 letters"
             autoComplete="off"
-            defaultValue = {book.language}
+            defaultValue={book.language}
             {...register("language", {
               required: {
                 value: true,
@@ -275,7 +271,7 @@ const CreateBook = () => {
             className="form__input"
             type="number"
             autoComplete="off"
-            defaultValue = {book.pages}
+            defaultValue={book.pages}
             {...register("pages", {
               required: {
                 value: true,
@@ -296,7 +292,7 @@ const CreateBook = () => {
             type="text"
             placeholder="Enter the link URL"
             autoComplete="off"
-            defaultValue = {book.link}
+            defaultValue={book.link}
             {...register("link", {
               required: {
                 value: true,
@@ -306,7 +302,6 @@ const CreateBook = () => {
           />
         </div>
         {errors.link && <span className="form__input-error">{errors.link.message}</span>}
-
 
         <button className="form__btn" id="formBtn">
           Load up
