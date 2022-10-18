@@ -7,16 +7,22 @@
   align-items: center;
   justify-content: center;
   padding: 3rem 2rem;
-  height: 90vh;
 }
 .home__wrapper {
-  width: 100%;
   display: flex;
   flex-wrap: nowrap;
   align-content: center;
   justify-content: center;
+  flex-direction: column;
+  padding: 3rem 1rem;
 }
 .home__firstSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__secondSection {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,6 +58,7 @@
   line-height: 1.5rem;
   font-weight: 400;
   padding: 2rem 0rem;
+  flex: 5;
 }
 .home__container__btn {
   display: flex;
@@ -59,20 +66,30 @@
 }
 .home__btn {
   background-color: var(--button-bg);
-  color: var(--color-light-primary);
+  justify-content: center;
+
   text-decoration: none;
   font-weight: 700;
   padding: 0.8rem 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   border: none;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
 
+.home__btn a {
+  color: var(--color-light-primary);
+  text-decoration: none;
+}
+
 .home__btn:hover {
-  background-color: #ffffff;
-  color: var(--button-bg);
+  background-color: var(--color-light-primary);
   border: 1px solid var(--button-bg);
+  transform: scale(1.1);
+}
+
+.home__btn a:hover {
+  color: var(--button-bg);
 }
 
 @media (max-width: 600px) {

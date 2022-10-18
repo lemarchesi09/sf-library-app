@@ -26,7 +26,7 @@
   color: var(--color-dark-secondary);
 }
 
-.foot-text a:hover {
+.footer__text a:hover {
   opacity: 0.5;
 }
 
@@ -37,6 +37,10 @@
 .avalith__logo {
   text-decoration: none;
   display: flex;
+}
+
+.avalith__logo img {
+  max-width: 130px;
 }
 
 .footer__avalith {
