@@ -11,14 +11,16 @@ const booksSlice = createSlice({
         state.unshift(action.payload)
     },
     editBook: (state, action)=>{
-        const { index, title, imageLink, country, year, author, synopsis } = action.payload
+        const { index, title, imageLink, country, year, author,language, pages, link } = action.payload
         //console.log(index)
         state[index].title = title
         state[index].imageLink = imageLink
         state[index].country = country
         state[index].year = year
         state[index].author = author
-        state[index].synopsis = synopsis
+        state[index].language = language
+        state[index].pages = pages
+        state[index].link = link
     },
     deleteBook: (state, action)=>{
         return state.filter(book => book.title !== action.payload)

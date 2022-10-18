@@ -9,6 +9,7 @@
     align-items: center;
     padding: 15px;
     position: relative;
+    margin-top: 6rem;
 }
 
 .bookCard__img-container {
@@ -34,8 +35,8 @@
 }
 
 .property__book {
-    padding: 5px 0; 
-    
+    padding: 5px 0;
+    text-decoration: none;    
 }
 .property__book-link{
     text-decoration: none;

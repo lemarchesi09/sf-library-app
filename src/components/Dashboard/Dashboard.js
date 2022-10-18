@@ -47,7 +47,7 @@ export const Dashboard = () =>{
         const arrayOfStrings = stringToSplit.split(separator)      
         return arrayOfStrings[0]
       }
-    const comma = ';'
+    const comma = '-'
     
     return(
         <div className="dashboard">
