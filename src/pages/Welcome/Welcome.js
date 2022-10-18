@@ -5,14 +5,14 @@ export const Welcome = () => {
   return (
     <div className="welcome-cont">
       <div className="welc-text">
-        <h1>Bienvenid@s a LibreriApp</h1>
+        <h1>Welcome to LibraryApp</h1>
         <p>
-          Encontra un listado de libros <span>Increíbles</span>
+          Find in a lot of books <span>Incredibles</span>.
         </p>
-        <p>También podes subir tus libros y agrandar la colección</p>
+        <p>Also, you can upload your own books and increase the collection.</p>
       </div>
       <Link to="/" className="welc-btn">
-        Comenzar !
+        Start!
       </Link>
     </div>
   );
