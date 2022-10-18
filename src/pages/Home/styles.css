@@ -52,22 +52,26 @@
   font-weight: 400;
   padding: 2rem 0rem;
 }
-
-.home__btn{
-  background-color: orangered;
-  color: white;
-  padding: 2%;
-  font-size: 1.5rem;
+.home__container__btn {
+  display: flex;
+  justify-content: center;
+}
+.home__btn {
+  background-color: var(--button-bg);
+  color: var(--color-light-primary);
   text-decoration: none;
-  margin-top: 3%;
+  font-weight: 700;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.5rem;
+  border: none;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .home__btn:hover {
-  background-color: white;
-  color: orangered;
-  border: 1px solid orangered;
-  transition: all 0.5s ease-in-out;
-  
+  background-color: #ffffff;
+  color: var(--button-bg);
+  border: 1px solid var(--button-bg);
 }
 
 @media (max-width: 600px) {
