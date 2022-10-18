@@ -1,5 +1,6 @@
 import "./footer.css";
 import "../../styles/styles.css";
+import avalithLogo from "../../assets/images/avalith-logo.svg";
 
 export const Footer = () => {
   return (
@@ -20,11 +21,9 @@ export const Footer = () => {
           </p>
         </div>
         <div className="footer__avalith">
-          <p className="avalith">
-            <a href="https://www.avalith.net/" className="avalith__link" target="_blank" rel="noreferrer">
-              AVALITH<span className="punto">.</span>
-            </a>
-          </p>
+          <a href="https://www.avalith.net/" className="avalith__logo" target="_blank" rel="noreferrer">
+            <img src={avalithLogo} alt="Logo de avalith"></img>
+          </a>
         </div>
       </div>
     </div>

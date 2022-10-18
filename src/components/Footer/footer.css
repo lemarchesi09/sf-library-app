@@ -3,8 +3,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 20vh;
   width: 100%;
+  height: 3rem;
+  padding: 3rem 2rem;
 }
 
 .foot-text {
@@ -29,34 +30,25 @@
   opacity: 0.5;
 }
 
-.avalith a {
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--font-black);
-}
-
 .foot-logo {
   width: 36%;
 }
 
-.avalith__link {
+.avalith__logo {
   text-decoration: none;
   display: flex;
 }
 
-.avalith {
-  font-weight: 600;
-  font-style: italic;
-  color: var(--font-black);
-  font-size: 1.5rem;
+.footer__avalith {
+  display: flex;
+  justify-content: space-around;
 }
 
-.punto {
-  color: var(--font-red);
-  font-size: 1.3rem;
-}
-
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
+  .footer__avalith {
+    display: flex;
+    flex-direction: column;
+  }
   .foot-text {
     display: flex;
     flex-direction: column;
@@ -65,7 +57,7 @@
     justify-content: center;
     text-align: center;
   }
-  .avalith {
+  .avalith__logo {
     padding: 0.5rem;
   }
   .foot-cont {

@@ -9,7 +9,9 @@ export const Home = () => {
       <div className="home__wrapper">
         <div className="container home__firstSection">
           <div className="home__title">
-            <h2>Welcome to Library App</h2>
+            <h2>
+              Welcome to<br></br>Library App
+            </h2>
           </div>
           <div className="home__image">
             <img src={imageBooks} alt=""></img>
