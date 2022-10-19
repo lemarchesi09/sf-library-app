@@ -26,9 +26,11 @@ const booksSlice = createSlice({
         return state.filter(book => book.title !== action.payload)
     },
     searchBook: (state, action) =>{
+        // const newState = state.filter((book) => book.title.toUpperCase().includes(searchListo))
         state = action.payload;
         console.log('Action en SearchBook', action.payload);
         console.log('state en SearchBook', state);
+        return state
     }
    },
 })

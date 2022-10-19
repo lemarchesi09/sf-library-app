@@ -12,6 +12,7 @@ import { SearchBar } from "../SearchBar/SearchBar";
 export const NavBar = () => {
   const usersFromStore = useSelector((state) => state.users);
   const dispatch = useDispatch();
+
   const userFinded = usersFromStore.find((usuario) => usuario.active === true);
   const handleLog = (id) => {
     dispatch(logged(id));
