@@ -10,9 +10,8 @@ export const Home = () => {
       <div className="home__wrapper">
         <div className="container home__firstSection">
           <div className="home__title">
-            <h2>
-              Welcome to<br></br>Library App
-            </h2>
+            <h2>Welcome to Library App.</h2>
+            <h3>Find in a lot of books Incredibles. Also, you can upload your own books and increase the collection.</h3>
           </div>
           <div className="home__image">
             <img src={imageBooks} alt=""></img>
@@ -25,8 +24,7 @@ export const Home = () => {
           </div>
           <div className="home__paragraph">
             <p>
-              You can read and add in your own books into for all community. Enjoy reading books whenever and wherever you want with our multiple
-              paltform.
+              Read and add in your own books into for all community. Enjoy reading books whenever and wherever you want with our multiple paltform.
             </p>
             <div className="home__container__btn">
               <button className="home__btn">
