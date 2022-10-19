@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { logged } from "../../features/login/loginSlice";
 import { SearchBar } from "../SearchBar/SearchBar";
 
-
 export const NavBar = () => {
   const usersFromStore = useSelector((state) => state.users);
   const dispatch = useDispatch();
@@ -22,7 +21,7 @@ export const NavBar = () => {
   console.log("fuera del handle", usersFromStore);
   return (
     <nav className="navbar__container shadow-lg">
-      <ul className="navbar__links">
+      <ul className="navbar__links container">
         <div className="navbar__item">
           <Link to="/" className="navbar__item-logo">
             <img className="navbar__item-logo-img" src={logo} alt="img logo"></img>
