@@ -6,6 +6,8 @@ import { FiBook, FiBookOpen } from "react-icons/fi";
 import logo from "../../assets/images/bookstore-removebg.png";
 import { useSelector, useDispatch } from "react-redux";
 import { logged } from "../../features/login/loginSlice";
+import { SearchBar } from "../SearchBar/SearchBar";
+
 
 export const NavBar = () => {
   const usersFromStore = useSelector((state) => state.users);
@@ -34,14 +36,7 @@ export const NavBar = () => {
             </p>
           )}
         </div>
-        <div className="navbar__item-search-container">
-          <li className="navbar__item-search">
-            <input className="navbar__item-search-input" type="text" name="search" placeholder="Search" />
-          </li>
-          <li className="navbar__item-btn-search">
-            <BsSearch />
-          </li>
-        </div>
+        <SearchBar />
         {!userFinded ? (
           <Link to="/login" className="navbar__item-btn-login">
             <FiBook /> Login
