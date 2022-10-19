@@ -25,10 +25,15 @@ const booksSlice = createSlice({
     deleteBook: (state, action)=>{
         return state.filter(book => book.title !== action.payload)
     },
+    searchBook: (state, action) =>{
+        state = action.payload;
+        console.log('Action en SearchBook', action.payload);
+        console.log('state en SearchBook', state);
+    }
    },
 })
 
 
 //editBooks
-export const { addBook, deleteBook, editBook } = booksSlice.actions
+export const { addBook, deleteBook, editBook, searchBook } = booksSlice.actions
 export default booksSlice.reducer

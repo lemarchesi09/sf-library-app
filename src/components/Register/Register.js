@@ -14,15 +14,11 @@ export const Register = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data, e) => {
-    // const fields = {
-    //   user: data.user,
-    //   password: data.password,
-    // };
+
     const newUser ={
       user: data.user,
       password: data.password,
@@ -39,23 +35,6 @@ export const Register = () => {
       confirmButtonText: "Now Log In",
     });
     navigate('/login')
-    // if (data.user === users.user && data.password === users.password) {
-    //   console.log("Usuario Logeado");
-    //   Swal.fire({
-    //     title: "Log in success!",
-    //     text: `Welcome ${data.user.toUpperCase()}`,
-    //     icon: "success",
-    //     confirmButtonText: "Go ahead",
-    //   });
-    // } else {
-    //   console.log("Datos invalidos");
-    //   Swal.fire({
-    //     title: "Log in Failed!",
-    //     text: `Ups... invalid fields`,
-    //     icon: "error",
-    //     confirmButtonText: "Try again",
-    //   });
-    // }
   };
 
   return (

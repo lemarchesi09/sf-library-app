@@ -1,5 +1,6 @@
 import "./dashboard.css";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteBook } from "../../features/books/booksSlice";
 import Swal from "sweetalert2";
@@ -42,6 +43,10 @@ export const Dashboard = () => {
     return arrayOfStrings[0];
   };
   const comma = "-";
+
+  // useEffect( () => {
+    
+  // }, [books])
 
   return (
     <div className="dashboard">
