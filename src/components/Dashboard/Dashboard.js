@@ -1,6 +1,6 @@
 import "./dashboard.css";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteBook } from "../../features/books/booksSlice";
 import Swal from "sweetalert2";
@@ -15,6 +15,8 @@ export const Dashboard = () => {
   console.log(userFinded);
 
   const dispatch = useDispatch();
+
+  const [libros, setLibros] = useState([])
 
   const handleDelete = (title) => {
     MySwal.fire({
@@ -44,9 +46,9 @@ export const Dashboard = () => {
   };
   const comma = "-";
 
-  // useEffect( () => {
-    
-  // }, [books])
+  useEffect( () => {
+    setLibros(books)
+  }, [books])
 
   return (
     <div className="dashboard">
@@ -61,7 +63,7 @@ export const Dashboard = () => {
         )}
       </div>
       <div className="dashboard-cont">
-        {books.map((book, index) => {
+        {libros.map((book, index) => {
           return (
             <div key={index} className="book-item">
               <h3>{book.title}</h3>

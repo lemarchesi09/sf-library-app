@@ -19,11 +19,11 @@ export const SearchBar = () =>{
         const searchListo = search.toUpperCase();
 
         const searchResult = books.filter((book) => book.title.toUpperCase().includes(searchListo))
-        
+
         console.log('Book Finded', searchResult);
         console.log('Handlesubmit', searchListo);
-        dispatch(searchBook(searchResult))
-        navigate('/dashboard')
+        // dispatch(searchBook(searchResult))
+        // navigate('/dashboard')
     }
 
     console.log('Search en useState', search);
