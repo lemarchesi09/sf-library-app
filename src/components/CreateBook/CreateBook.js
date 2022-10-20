@@ -115,198 +115,200 @@ const CreateBook = () => {
   };
 
   return (
-    <section className="form">
-      <div className="form__titulo">
-        <p className="form__titulo-detalle">Please complete the form.</p>
+    <section className="wrapper__createBook ">
+      <div className="form container__createBook">
+        <div className="form__titulo">
+          <p className="form__titulo-detalle">Please complete the form.</p>
+        </div>
+
+        <form className="form__container" onSubmit={handleSubmit(onSubmit)}>
+          <div className="form__input-section">
+            <label className="form__input-label">
+              <p className="form__input-title">Title: </p>
+            </label>
+            <input
+              id="title"
+              className="form__input"
+              type="text"
+              placeholder="Max 30 characters"
+              autoComplete="off"
+              defaultValue={book.title}
+              {...register("title", {
+                required: {
+                  value: true,
+                  message: "The title input is required",
+                },
+                maxLength: {
+                  value: 30,
+                  message: "Must be less than 30 characters",
+                },
+              })}
+            />
+          </div>
+          {errors.title && <span className="form__input-error">{errors.title.message}</span>}
+
+          <div className="form__input-section">
+            <label className="form__input-label">
+              <p className="form__input-gender">Image: </p>
+            </label>
+            <input
+              id="image"
+              className="form__input"
+              type="text"
+              placeholder="Enter the image URL"
+              autoComplete="off"
+              defaultValue={book.imageLink}
+              {...register("image", {
+                required: {
+                  value: true,
+                  message: "The image input is required",
+                },
+              })}
+            />
+          </div>
+          {errors.image && <span className="form__input-error">{errors.image.message}</span>}
+
+          <div className="form__input-section">
+            <label className="form__input-label">
+              <p className="form__input-gender">Country: </p>
+            </label>
+            <input
+              id="country"
+              className="form__input"
+              type="text"
+              placeholder="Max 20 letters"
+              autoComplete="off"
+              defaultValue={book.country}
+              {...register("country", {
+                required: {
+                  value: true,
+                  message: "The country input is required",
+                },
+                maxLength: {
+                  value: 20,
+                  message: "Must be less than 20 letters",
+                },
+              })}
+            />
+          </div>
+          {errors.country && <span className="form__input-error">{errors.country.message}</span>}
+
+          <div className="form__input-section">
+            <label className="form__input-label">
+              <p className="form__input-year">Year: </p>
+            </label>
+            <input
+              id="year"
+              className="form__input"
+              type="number"
+              autoComplete="off"
+              defaultValue={book.year}
+              {...register("year", {
+                required: {
+                  value: true,
+                  message: "The year input is required",
+                },
+              })}
+            />
+          </div>
+          {errors.year && <span className="form__input-error">{errors.year.message}</span>}
+
+          <div className="form__input-section">
+            <label className="form__input-label">
+              <p className="form__input-author">Author: </p>
+            </label>
+            <input
+              id="author"
+              className="form__input"
+              type="text"
+              placeholder="1er Author - 2do Author"
+              autoComplete="off"
+              defaultValue={book.author}
+              {...register("author", {
+                required: {
+                  value: true,
+                  message: "The author input is required",
+                },
+                maxLength: {
+                  value: 60,
+                  message: "Must be less than 60 letters",
+                },
+              })}
+            />
+          </div>
+          {errors.author && <span className="form__input-error">{errors.author.message}</span>}
+
+          <div className="form__input-section">
+            <label className="form__input-label">
+              <p className="form__input-author">Language: </p>
+            </label>
+            <input
+              id="language"
+              className="form__input"
+              type="text"
+              placeholder="Max 30 letters"
+              autoComplete="off"
+              defaultValue={book.language}
+              {...register("language", {
+                required: {
+                  value: true,
+                  message: "The language input is required",
+                },
+                maxLength: {
+                  value: 15,
+                  message: "Must be less than 15 letters",
+                },
+              })}
+            />
+          </div>
+          {errors.language && <span className="form__input-error">{errors.language.message}</span>}
+
+          <div className="form__input-section">
+            <label className="form__input-label">
+              <p className="form__input-author">Pages: </p>
+            </label>
+            <input
+              id="pages"
+              className="form__input"
+              type="number"
+              autoComplete="off"
+              defaultValue={book.pages}
+              {...register("pages", {
+                required: {
+                  value: true,
+                  message: "The pages input is required",
+                },
+              })}
+            />
+          </div>
+          {errors.pages && <span className="form__input-error">{errors.pages.message}</span>}
+
+          <div className="form__input-section">
+            <label className="form__input-label">
+              <p className="form__input-author">Link: </p>
+            </label>
+            <input
+              id="link"
+              className="form__input"
+              type="text"
+              placeholder="Enter the link URL"
+              autoComplete="off"
+              defaultValue={book.link}
+              {...register("link", {
+                required: {
+                  value: true,
+                  message: "The link input is required",
+                },
+              })}
+            />
+          </div>
+          {errors.link && <span className="form__input-error">{errors.link.message}</span>}
+
+          <button className="form__btn" id="formBtn">
+            Load up
+          </button>
+        </form>
       </div>
-
-      <form className="form__container" onSubmit={handleSubmit(onSubmit)}>
-        <div className="form__input-section">
-          <label>
-            <h2 className="form__input-title">Title: </h2>
-          </label>
-          <input
-            id="title"
-            className="form__input"
-            type="text"
-            placeholder="Max 30 characters"
-            autoComplete="off"
-            defaultValue={book.title}
-            {...register("title", {
-              required: {
-                value: true,
-                message: "The title input is required",
-              },
-              maxLength: {
-                value: 30,
-                message: "Must be less than 30 characters",
-              },
-            })}
-          />
-        </div>
-        {errors.title && <span className="form__input-error">{errors.title.message}</span>}
-
-        <div className="form__input-section">
-          <label>
-            <h2 className="form__input-gender">Image: </h2>
-          </label>
-          <input
-            id="image"
-            className="form__input"
-            type="text"
-            placeholder="Enter the image URL"
-            autoComplete="off"
-            defaultValue={book.imageLink}
-            {...register("image", {
-              required: {
-                value: true,
-                message: "The image input is required",
-              },
-            })}
-          />
-        </div>
-        {errors.image && <span className="form__input-error">{errors.image.message}</span>}
-
-        <div className="form__input-section">
-          <label>
-            <h2 className="form__input-gender">Country: </h2>
-          </label>
-          <input
-            id="country"
-            className="form__input"
-            type="text"
-            placeholder="Max 20 letters"
-            autoComplete="off"
-            defaultValue={book.country}
-            {...register("country", {
-              required: {
-                value: true,
-                message: "The country input is required",
-              },
-              maxLength: {
-                value: 20,
-                message: "Must be less than 20 letters",
-              },
-            })}
-          />
-        </div>
-        {errors.country && <span className="form__input-error">{errors.country.message}</span>}
-
-        <div className="form__input-section">
-          <label>
-            <h2 className="form__input-year">Year: </h2>
-          </label>
-          <input
-            id="year"
-            className="form__input"
-            type="number"
-            autoComplete="off"
-            defaultValue={book.year}
-            {...register("year", {
-              required: {
-                value: true,
-                message: "The year input is required",
-              },
-            })}
-          />
-        </div>
-        {errors.year && <span className="form__input-error">{errors.year.message}</span>}
-
-        <div className="form__input-section">
-          <label>
-            <h2 className="form__input-author">Author: </h2>
-          </label>
-          <input
-            id="author"
-            className="form__input"
-            type="text"
-            placeholder="1er Author - 2do Author"
-            autoComplete="off"
-            defaultValue={book.author}
-            {...register("author", {
-              required: {
-                value: true,
-                message: "The author input is required",
-              },
-              maxLength: {
-                value: 60,
-                message: "Must be less than 60 letters",
-              },
-            })}
-          />
-        </div>
-        {errors.author && <span className="form__input-error">{errors.author.message}</span>}
-
-        <div className="form__input-section">
-          <label>
-            <h2 className="form__input-author">Language: </h2>
-          </label>
-          <input
-            id="language"
-            className="form__input"
-            type="text"
-            placeholder="Max 30 letters"
-            autoComplete="off"
-            defaultValue={book.language}
-            {...register("language", {
-              required: {
-                value: true,
-                message: "The language input is required",
-              },
-              maxLength: {
-                value: 15,
-                message: "Must be less than 15 letters",
-              },
-            })}
-          />
-        </div>
-        {errors.language && <span className="form__input-error">{errors.language.message}</span>}
-
-        <div className="form__input-section">
-          <label>
-            <h2 className="form__input-author">Pages: </h2>
-          </label>
-          <input
-            id="pages"
-            className="form__input"
-            type="number"
-            autoComplete="off"
-            defaultValue={book.pages}
-            {...register("pages", {
-              required: {
-                value: true,
-                message: "The pages input is required",
-              },
-            })}
-          />
-        </div>
-        {errors.pages && <span className="form__input-error">{errors.pages.message}</span>}
-
-        <div className="form__input-section">
-          <label>
-            <h2 className="form__input-author">Link: </h2>
-          </label>
-          <input
-            id="link"
-            className="form__input"
-            type="text"
-            placeholder="Enter the link URL"
-            autoComplete="off"
-            defaultValue={book.link}
-            {...register("link", {
-              required: {
-                value: true,
-                message: "The link input is required",
-              },
-            })}
-          />
-        </div>
-        {errors.link && <span className="form__input-error">{errors.link.message}</span>}
-
-        <button className="form__btn" id="formBtn">
-          Load up
-        </button>
-      </form>
     </section>
   );
 };
