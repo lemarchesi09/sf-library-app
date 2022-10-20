@@ -3,6 +3,7 @@
   background-size: cover;
   background-attachment: fixed;
   margin-top: 6rem;
+  padding: 0;
 }
 .dashboard-text {
   width: 100%;
@@ -10,90 +11,84 @@
   justify-content: center;
   align-items: center;
   background-color: var(--color-light-secondary);
-  padding: 1%;
 }
 .dashboard-text h2 {
   font-size: 1.5rem;
 }
-.book-item {
-  background-color: rgba(255, 255, 255, 0.486);
-  width: 70%;
+
+.book__card {
+  background-color: var(--color-light-secondary);
+  width: 320px;
+  margin: 1rem;
   height: auto;
-  border: 1px solid black;
-  margin: 2%;
+  border: none;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  padding: 2%;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease-in-out;
 }
 
-.book-item img {
+.book__card img {
   width: 100%;
+  max-width: 280px;
 }
 
 .dashboard-cont {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 2%;
-}
-.book-item h3,
-span {
-  font-weight: 900;
-  color: var(--color-dark-primary);
-}
-.button-cont {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 5%;
+  padding-top: 1rem;
 }
 
-.btn-crt {
-  background-color: lightgreen;
-  position: relative;
-  left: 19%;
-  border-radius: 5px;
-  padding: 1%;
-  height: 6vh;
-  display: flex;
-  align-items: center;
-}
-.btn-upd {
-  background-color: rgb(109, 179, 248);
-}
-.btn-dlt {
-  background-color: red;
-}
-
-.button {
-  border-radius: 5px;
-  padding: 2%;
-  font-size: 1.1rem;
-  color: var(--color-dark-primary);
-}
-
-.btn-info {
-  padding: 2%;
-}
-
-.book-item:hover {
+.book__card:hover {
   transform: scale(1.01);
-  transition: all 0.5s ease-in-out;
-}
-.button:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
 }
 
-@media screen and (min-width: 768px) {
-  .book-item {
-    width: 25%;
-  }
-  .btn-crt {
-    left: 29%;
-  }
+.button__add {
+  border-radius: 3px;
+  align-self: center;
+  background-color: var(--color-light-primary);
+  color: var(--button-bg);
+  border: none;
+  font-weight: 700;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.button__add a {
+  color: var(--button-bg);
+}
+
+.button__add:hover {
+  transform: scale(1.1);
+  color: var(--button-bg);
+}
+
+.button__card {
+  border-radius: 3px;
+  align-self: center;
+  background-color: var(--button-bg);
+  color: var(--color-light-primary);
+  font-weight: 700;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button__card :hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 320px) {
 }
