@@ -1,6 +1,7 @@
 .bookCard {
   background: var(--color-light-secondary);
   position: relative;
+  height: 90vh;
 }
 
 .bookCard__container {
@@ -10,7 +11,7 @@
 }
 
 .bookCard__img-container {
-  flex: 5;
+  flex: auto;
   justify-content: center;
   align-items: center;
   display: flex;
