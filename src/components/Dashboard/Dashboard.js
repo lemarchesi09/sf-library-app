@@ -76,7 +76,7 @@ export const Dashboard = () => {
               </p>
               <img src={book.imageLink} alt="img-card" />
 
-              <div>
+              <div className="buttons__cards__container">
                 <Link to={`/details/${index}`}>
                   <button className="button btn-info button__card">More info</button>
                 </Link>

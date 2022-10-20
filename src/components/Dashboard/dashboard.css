@@ -13,7 +13,11 @@
   background-color: var(--color-light-secondary);
 }
 .dashboard-text h2 {
+  color: var(--color-dark-primary);
   font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 2rem;
+  padding: 1rem 0rem;
 }
 
 .book__card {
@@ -30,9 +34,27 @@
   transition: all 0.3s ease-in-out;
 }
 
+.book__card h3 {
+  color: var(--color-dark-primary);
+  font-size: 1.3rem;
+  line-height: 1.4rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.book__card p {
+  color: var(--color-dark-primary);
+  font-size: 1rem;
+  line-height: 1.1rem;
+  text-align: center;
+  padding: 0.5rem;
+  justify-content: flex-start;
+}
+
 .book__card img {
   width: 100%;
   max-width: 280px;
+  max-height: 420px;
 }
 
 .dashboard-cont {
@@ -68,6 +90,11 @@
   color: var(--button-bg);
 }
 
+.buttons__cards__container {
+  display: flex;
+  padding: 0.5rem;
+}
+
 .button__card {
   border-radius: 3px;
   align-self: center;
@@ -80,6 +107,10 @@
   border: none;
   transition: 0.3s;
   cursor: pointer;
+}
+
+.button__card a {
+  color: var(--color-light-primary);
 }
 
 a {
