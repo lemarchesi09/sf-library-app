@@ -12,8 +12,6 @@ Realizar el checkpoint n°3 de SkillFactory.
 
 ## Instalación
 
-El proyecto requiere Node.js
-
 Clonar el repositorio remoto
 ```sh
 cd carpeta-contenedora-del-repositorio-a-clonar
