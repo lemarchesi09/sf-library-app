@@ -1,4 +1,5 @@
 import "./dashboard.css";
+import "../../styles/styles.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,7 +17,7 @@ export const Dashboard = () => {
 
   const dispatch = useDispatch();
 
-  const [libros, setLibros] = useState([])
+  const [libros, setLibros] = useState([]);
 
   const handleDelete = (title) => {
     MySwal.fire({
@@ -46,26 +47,28 @@ export const Dashboard = () => {
   };
   const comma = "-";
 
-  useEffect( () => {
-    setLibros(books)
-  }, [books])
+  useEffect(() => {
+    setLibros(books);
+  }, [books]);
 
   return (
-    <div className="dashboard">
-      <div className="dashboard-text">
-        <h2>Libros</h2>
-        {userFinded ? (
-          <button className="btn-crt">
-            <Link to="/createBook">ADD Book</Link>
-          </button>
-        ) : (
-          <></>
-        )}
+    <section className="dashboard wrapper">
+      <div className="dashboard-text ">
+        <div className="container">
+          <h2>All books</h2>
+          {userFinded ? (
+            <button className="btn-crt button__add">
+              <Link to="/createBook">Add Book</Link>
+            </button>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
-      <div className="dashboard-cont">
+      <div className="dashboard-cont container">
         {libros.map((book, index) => {
           return (
-            <div key={index} className="book-item">
+            <div key={index} className="book-item book__card">
               <h3>{book.title}</h3>
               <p>
                 <span>Author: </span>
@@ -73,30 +76,32 @@ export const Dashboard = () => {
               </p>
               <img src={book.imageLink} alt="img-card" />
 
-              <Link to={`/details/${index}`}>
-                <button className="button btn-info">More info</button>
-              </Link>
-              {userFinded ? (
-                <div className="button-cont">
-                  <button className="button btn-upd">
-                    <Link to={`/update/${index}`}>Update</Link>
-                  </button>
-                  <button
-                    className="button btn-dlt"
-                    onClick={() => {
-                      handleDelete(book.title);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </div>
-              ) : (
-                <></>
-              )}
+              <div className="buttons__cards__container">
+                <Link to={`/details/${index}`}>
+                  <button className="button btn-info button__card">More info</button>
+                </Link>
+                {userFinded ? (
+                  <div className="button-cont">
+                    <button className="button btn-upd button__card">
+                      <Link to={`/update/${index}`}>Update</Link>
+                    </button>
+                    <button
+                      className="button btn-dlt button__card"
+                      onClick={() => {
+                        handleDelete(book.title);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                ) : (
+                  <></>
+                )}
+              </div>
             </div>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };

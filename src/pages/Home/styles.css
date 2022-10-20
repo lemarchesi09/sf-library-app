@@ -6,7 +6,6 @@
   align-content: center;
   align-items: center;
   justify-content: center;
-  padding: 3rem 0rem 0rem;
 }
 .home__wrapper {
   display: flex;
@@ -20,6 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 3rem 0rem 0rem;
 }
 
 .home__secondSection {
@@ -28,17 +28,28 @@
   align-items: center;
 }
 
-.home__title {
+.home__title,
+h2,
+h3 {
   color: var(--color-dark-primary);
   font-size: 3rem;
   line-height: 3rem;
-  font-weight: 300;
   padding: 3rem 0rem 0rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  text-align: start;
   flex: 5;
+}
+.home__title h2 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+  font-weight: 400;
+}
+.home__title h3 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  padding: 0rem 2rem 0rem 0rem;
+  font-weight: 300;
 }
 
 .home__image {
@@ -56,7 +67,7 @@
   color: var(--color-dark-primary);
   font-size: 1.5rem;
   line-height: 1.9rem;
-  font-weight: 400;
+  font-weight: 300;
   padding: 2rem 0rem;
   flex: 5;
 }
@@ -74,11 +85,12 @@
   border: 1px solid var(--button-bg);
   transition: all 0.5s ease-in-out;
   cursor: pointer;
+  color: var(--color-light-primary);
 }
 
 .home__btn a {
-  color: var(--color-light-primary);
   text-decoration: none;
+  color: var(--color-light-primary);
 }
 
 .home__btn:hover {
@@ -105,53 +117,49 @@
     flex-direction: column-reverse;
   }
 
-  .home__title {
+  .home__title,
+  h2,
+  h3 {
     color: var(--color-dark-primary);
-    font-size: 3rem;
-    line-height: 3rem;
+
     font-weight: 300;
-    padding: 3rem 0rem;
+    padding: 3rem 0rem 0rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+  .home__title h2 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
 
-  .home__paragraph img {
-    width: 100%;
-    max-width: 750px;
+  .home__title h3 {
+    padding: 0.5rem 0rem 0rem;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
   }
 
   .home__paragraph {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.5rem;
-    font-weight: 400;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 1rem 0rem;
   }
 
   .home__image img {
     padding: 1rem;
   }
-}
 
-@media (max-width: 340px) {
-  .home__title {
-    font-size: 3rem;
-    line-height: 3rem;
-    font-weight: 300;
+  .home__btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
   }
 
-  .home__paragraph {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    font-weight: 400;
-    padding: 0rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .home__container__btn {
+    padding: 1rem 0rem;
   }
 }
